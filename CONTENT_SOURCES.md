@@ -1,81 +1,78 @@
-# Content Sources & Fact Verification Log (`CONTENT_SOURCES.md`)
+# Verified Content Sources & Attribution Index (`CONTENT_SOURCES.md`)
 
-Every biographical detail, academic credential, project architecture description, collaborator credit, and hackathon milestone presented in **SATHYA — BEYOND THE SCREEN** was verified against public primary sources before inclusion. No employment history, artificial metrics, or unverified claims have been fabricated.
-
----
-
-## 1. Personal Identity & Contact Information
-
-| Claim / Field | Verified Value | Primary Source |
-| :--- | :--- | :--- |
-| **Full Name** | Yejju Sathya Sai | [My-Portfolio `Hero.tsx`](https://github.com/ysathyasai/My-Portfolio/blob/main/src/components/Hero.tsx) & [StudyHub `README.md`](https://github.com/ysathyasai/StudyHub/blob/main/README.md) |
-| **Preferred Display Name** | Sathya Sai | Project Brief & GitHub Profile (`ysathyasai`) |
-| **Location** | Hyderabad / Secunderabad, Telangana, India | [My-Portfolio `About.tsx` & `Footer.tsx`](https://github.com/ysathyasai/My-Portfolio/blob/main/src/components/About.tsx) |
-| **Public Email** | `ysathyasai.dev@gmail.com` | [My-Portfolio `Contact.tsx`](https://github.com/ysathyasai/My-Portfolio/blob/main/src/components/Contact.tsx) |
-| **GitHub** | `https://github.com/ysathyasai` | [GitHub Profile](https://github.com/ysathyasai) |
-| **LinkedIn** | `https://www.linkedin.com/in/ysathyasai` | [My-Portfolio `Contact.tsx`](https://github.com/ysathyasai/My-Portfolio/blob/main/src/components/Contact.tsx) |
-| **Twitter / X** | `https://x.com/ysathyasai` | [My-Portfolio `Contact.tsx`](https://github.com/ysathyasai/My-Portfolio/blob/main/src/components/Contact.tsx) |
-| **Medium** | `https://medium.com/@ysathyasai` | [My-Portfolio `Contact.tsx`](https://github.com/ysathyasai/My-Portfolio/blob/main/src/components/Contact.tsx) |
-| **Profile Photograph** | Local cached WebP (`/assets/portfolio/sathya-photo.webp`) | Extracted directly from `My-Portfolio` `About.tsx` (`https://res.cloudinary.com/dlkksfa9e/image/upload/f_webp/v1741387661/yfhka4arlfhpkzatfb2p.webp`) |
+Every project, collaborator, academic milestone, hackathon outcome, and social link featured in **SATHYA — BEYOND THE SCREEN (Version 2.0)** was gathered and cross-checked directly from my public repositories and live deployments. Zero placeholder or fabricated work history is used, and student roll numbers are intentionally omitted for privacy.
 
 ---
 
-## 2. Education & Academic Progression
+## 1. Identity & Academic Progression
 
-| Claim / Field | Verified Value | Primary Source |
-| :--- | :--- | :--- |
-| **Institution** | Government Institute of Electronics (GIOE), East Maredpally, Secunderabad | [My-Portfolio `About.tsx`](https://github.com/ysathyasai/My-Portfolio/blob/main/src/components/About.tsx) & [StudyHub `README.md`](https://github.com/ysathyasai/StudyHub/blob/main/README.md) |
-| **Department / Specialization** | Department of Artificial Intelligence & Machine Learning (AI & ML) | [StudyHub `README.md`](https://github.com/ysathyasai/StudyHub/blob/main/README.md) |
-| **Student Roll Number** | `23054-AI-051` | [StudyHub `README.md` Team Table](https://github.com/ysathyasai/StudyHub/blob/main/README.md) |
-| **Academic Milestones** | 2023 Cohort entry (`23054`), 6th Semester ML Fraud Detection Project (`Composite_Behavioral_Modeling`), Capstone Project (`StudyHub`) | [CBM `README.md`](https://github.com/ysathyasai/Composite_Behavioral_Modeling/blob/main/README.md) & [StudyHub `README.md`](https://github.com/ysathyasai/StudyHub/blob/main/README.md) |
+| Field | Verified Value | Primary Source URL |
+|---|---|---|
+| **Full Name** | Yejju Sathya Sai (`Sathya Sai`) | `https://github.com/ysathyasai/ysathyasai/blob/main/README.md` |
+| **Current Degree** | B.Tech in Computer Science & Engineering (AI & ML), 2nd Year | `https://github.com/ysathyasai/SAD_CBP/blob/main/README.md` |
+| **Current Institution** | Vallurupalli Nageswara Rao Vignana Jyothi Institute of Engineering and Technology (VNR VJIET), Hyderabad | `https://github.com/ysathyasai/SAD_CBP` & `https://github.com/ysathyasai/Java_CBP` |
+| **Foundation Diploma** | Diploma in Artificial Intelligence & Machine Learning (2023–2026) | `https://github.com/ysathyasai/StudyHub/blob/main/README.md` |
+| **Foundation Institution** | Government Institute of Electronics (GIOE), East Maredpally, Secunderabad | `https://github.com/ysathyasai/StudyHub/blob/main/README.md` |
+| **Location** | Hyderabad / Secunderabad, Telangana, India | `https://api.github.com/users/ysathyasai` |
+| **Verified Email** | `ysathyasai.dev@gmail.com` | `https://github.com/ysathyasai/ysathyasai/blob/main/README.md` |
+| **Portrait Photo** | `https://github.com/ysathyasai.png?size=460` | Official GitHub profile avatar |
 
 ---
 
-## 3. Featured Projects & Collaborator Attribution
+## 2. Social, Coding & Writing Profiles
 
-### A. Khet2Kitchen (K2K)
-- **Repository**: `https://github.com/ysathyasai/Khet2Kitchen` (and companion engine `https://github.com/ysathyasai/K2K`)
-- **Live Deployments**: `https://khet2kitchen.onrender.com/` and `https://k2k-intelligence-engine.onrender.com/`
-- **Context**: Smart India Hackathon (SIH 2026) Finalist under Problem Statement `SIH26033` (Ministry of Consumer Affairs, Food & Public Distribution / DoCA).
-- **Verified Role**: **Yejju Sathya Sai — Full-Stack Architect & Lead Software Engineer** (Django Core, B2B/D2C Engine, Database Schema, DevOps & API Design).
-- **Verified Collaborators**: Swayam (Team Lead), Shaik Mohammed Imaadh (AI/ML Engineer), Dupalica (Frontend Architect), Afsha Siddiha (Supply Chain Specialist), Karuneshwari (QA & Testing Engineer — 124/124 passing test suites).
-- **Verified Stack**: Python 3.11+, Django 5.1+, Google Gemini Flash Reasoning, Sarvam AI Indic Voice STT/TTS, Render.
+- **GitHub**: `https://github.com/ysathyasai` (28 public repositories)
+- **LinkedIn**: `https://www.linkedin.com/in/ysathyasai`
+- **X (Twitter)**: `https://x.com/ysathyasai`
+- **Medium**: `https://medium.com/@ysathyasai`
+- **Dev.to**: `https://dev.to/ysathyasai`
+- **LeetCode**: `https://leetcode.com/u/ysathyasai`
+- **Kaggle**: `https://www.kaggle.com/ysathyasai`
+- **Previous Portfolio Repository**: `https://github.com/ysathyasai/Portfolio`
 
-### B. Kodex — Cognitive Code Review Agent
-- **Repository**: `https://github.com/ysathyasai/Kodex`
+---
+
+## 3. Verified Projects, Deployments & Team Attribution (9 Core Systems)
+
+### 3.1 `Khet2Kitchen` (SIH 2026 Finalist — Problem Statement `SIH26033`)
+- **Repository**: `https://github.com/ysathyasai/Khet2Kitchen`
+- **Live Deployment**: `https://khet2kitchen.onrender.com/`
+- **My Role**: Full-Stack Architect & Lead Software Engineer (Django 5.1 Core, B2B/D2C Engine, Database Schema, DevOps & API Design)
+- **Verified Team**: Yejju Sathya Sai, Swayam, Shaik Mohammed Imaadh, Dupalica, Afsha Siddiha, Karuneshwari (124/124 passing automated tests).
+
+### 3.2 `Kodex` — Cognitive Code Review Agent (`HackwithHyderabad 3.0`)
+- **Repository**: `https://github.com/ysathyasai/kodex`
 - **Live Deployment**: `https://kodex-code-review-agent.onrender.com`
-- **Context**: Built for **HackwithHyderabad 3.0**.
-- **Verified Architecture**: Uses Vectorize Hindsight Cloud biomimetic cognitive memory (`recall`, `reflect`, `retain`), Groq `openai/gpt-oss-120b` inference, and Semantic Dependency Cohort Graphing (`diff_parser.py` sorting diffs into `Schema -> Logic -> API -> Tests -> Config`) with Mermaid.js sequence diagram sanitization and Docker Compose.
+- **My Role**: Lead Systems & AI Engineer
+- **Verified Architecture**: Vectorize Hindsight Cloud (`recall`, `reflect`, `retain`), Groq `openai/gpt-oss-120b`, Semantic Dependency Cohort Graphing (`diff_parser.py`).
 
-### C. StudyHub — Student Productivity Ecosystem
-- **Repository**: `https://github.com/ysathyasai/StudyHub` (plus web/TypeScript companion `https://github.com/ysathyasai/Studyhub-`)
-- **Release Artifact**: [Android APK Release](https://github.com/ysathyasai/StudyHub/releases/download/StudyHub/StudyHub.apk)
-- **Verified Role**: **Yejju Sathya Sai (`23054-AI-051`) — Project Developer and Documentation**.
-- **Verified Collaborators**: Nanduri Eknadha Adithya Srivatsa (`23054-AI-033`, Project Lead & Full-Stack Developer), Mantol Saketh (`23054-AI-027`, Core Developer), Ventrapragada Purna Vikas (`23054-AI-025`, UI/UX Design & Frontend), Katta Tejeshwar (`23054-AI-053`, Documentation & DevOps), Guttapalli Surya Prakash (`23054-AI-059`, Mobile Optimization), Koganti Sai Charan (`23054-AI-062`, API Integration & Backend), Kara Karthikeya (`23054-AI-023`, App Testing), Vankodvath Yekeshwar Naik (`23054-AI-028`, Database & Security), Neerati Sri Krishna Teja (`23054-AI-055`, Feature Development).
-- **Verified Stack**: Flutter 3.0+, Dart 2.19+, Firebase, Google Gemini API.
+### 3.3 `YieldGrid` — P2P Agricultural Crowdfunding & Escrow Platform (`Java_CBP` & `SAD_CBP`)
+- **Repositories**: `https://github.com/ysathyasai/Java_CBP` & `https://github.com/ysathyasai/SAD_CBP`
+- **Institution**: VNR VJIET, Hyderabad (Department of CSE — AI & ML)
+- **My Role**: Lead Systems Architect & Developer
+- **Verified Team**: Yejju Sathya Sai, Komal, Charan, Abhiram
+- **Verified Architecture**: Java 17, Swing, MySQL 8.0, JDBC Type-4, PBKDF2-HMAC-SHA256 (65,536 iterations), SHA-256 tamper-evident audit ledger, 8 StarUML diagrams, 53/53 passing tests across 5 suites.
 
-### D. Composite Behavioral Modeling (CBM)
-- **Repository**: `https://github.com/ysathyasai/Composite_Behavioral_Modeling` (and `https://github.com/ysathyasai/CBM`)
+### 3.4 `StudyHub` — Student Productivity Ecosystem
+- **Repository**: `https://github.com/ysathyasai/StudyHub`
+- **Release APK**: `https://github.com/ysathyasai/StudyHub/releases/download/v1.0.0/StudyHub-v1.0.0.apk`
+- **My Role**: Project Developer & Documentation (10-member GIOE Secunderabad team led by Nanduri Eknadha Adithya Srivatsa).
+
+### 3.5 `Composite Behavioral Modeling (CBM)` — Fraud-Risk Detection Platform
+- **Repository**: `https://github.com/ysathyasai/Composite_Behavioral_Modeling`
 - **Live Deployment**: `https://composite-behavioral-modeling-abci.onrender.com/`
-- **Context**: 6th Semester Academic Project at GIOE Secunderabad (built by `ysathyasai` and CBM team).
-- **Verified Architecture**: Monolithic Django 3.2 + Python 3.11 web application evaluating identity theft and fraud risk using an ensemble of `RandomForestClassifier`, `GradientBoostingClassifier`, and `LogisticRegression` (scikit-learn, pandas, NumPy). Includes Remote User prediction portal, Service Provider training/analytics portal, and `.xls` export via `xlwt`. Honestly notes Render free-tier (0.5 CPU) memory limits during live training.
+- **My Role**: Lead Developer (with Mohammed Imaadh, Swayam Prakash, and Eknadha Adithya).
 
-### E. ContribReady
+### 3.6 `ContribReady` — Open-Source Readiness Platform (`Hacktoberfest Hack Day`)
 - **Repository**: `https://github.com/ysathyasai/ContribReady`
-- **Context**: Built for **Hacktoberfest Hack Day 2026**.
-- **Verified Architecture**: React 19, Vite, Tailwind CSS, Node.js, Express, GitHub REST API, and Open-Weight / Gemini / Groq / Ollama AI integration that transforms a GitHub issue URL into pruned repo context, relevant file scores, concept cards, and a contributor readiness quiz.
+- **My Role**: Co-Creator & Full-Stack AI Engineer (with Swayam).
 
-### F. Cutthroat & AdaCompute (Cardano Web3 Ecosystem)
+### 3.7 `Cutthroat`, `AdaCompute` & `ImpactVault` — Cardano & Monad Web3 Suite
 - **Repository**: `https://github.com/ysathyasai/Cutthroat`
-- **Context**: Cardano blockchain builds & **Cardano IndiaCodex'26** participation.
-- **Verified Architecture**:
-  - **Cutthroat**: Decentralized donation platform built on Cardano using Next.js 15.5.3, TypeScript 5, Tailwind CSS, and Mesh SDK (`1.9.0-beta.74`) with smart contract transparency and NFT proof-of-donation certificates.
-  - **AdaCompute**: Decentralized AI service exchange concept explored for Cardano IndiaCodex'26 connecting AI compute nodes with Cardano transaction/escrow settlement.
+- **Hackathon Events**: Cardano IndiaCodex'26 (`AdaCompute`) & Monad Blitz (`ImpactVault`).
 
-### G. ImpactVault (Monad Blitz)
-- **Context**: Explored during **Monad Blitz** hackathon in Hyderabad, focusing on transparent donation-to-impact verification and verifiable on-chain tracking. Documented as a hackathon exploration alongside the verified `Cutthroat` repository.
+### 3.8 `Flask Video Downloader` & `RAG-Bot`
+- **Repositories**: `https://github.com/ysathyasai/flask-video-downloader` & `https://github.com/ysathyasai/Rag-Bot`
 
-### H. Flask Video Downloader, RAG-Bot & MicroKernel-OS
-- **Flask Video Downloader**: `https://github.com/ysathyasai/Flask-Video-Downloader` — Local-first Python 3.11 + Flask 3.x + `yt-dlp` + FFmpeg media station supporting Windows, macOS, Linux, and Android via Termux.
-- **RAG-Bot**: `https://github.com/ysathyasai/RAG-Bot` — Full-stack Retrieval-Augmented Generation assistant using FastAPI, ChromaDB, `sentence-transformers` (`all-MiniLM-L6-v2`), LangChain, and Groq (`llama-3.3-70b-versatile`) with page citations.
-- **MicroKernel-OS**: `https://github.com/ysathyasai/MicroKernel-OS` — Educational x86 32-bit microkernel in C and Assembly with BIOS bootloader (`0x7C00`), PIT preemptive round-robin scheduling, `kmalloc`/`kfree`, and `send`/`recv` IPC (forked/collaborative systems study with `ArchieTUX`).
+### 3.9 `MicroKernel-OS`, `Sentinel AI` & `Termux`
+- **Repositories**: `https://github.com/ysathyasai/MicroKernel-OS`, `https://github.com/ysathyasai/sentinel_ai`, and `https://github.com/ysathyasai/Termux` (30 GitHub Stars).

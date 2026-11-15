@@ -26,7 +26,7 @@ import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { RecruiterQuickViewModal } from './components/RecruiterQuickViewModal';
 import { AiArchitectureLabModal } from './components/AiArchitectureLabModal';
 import { AccessibleProjectGridDrawer } from './components/AccessibleProjectGridDrawer';
-import { ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Sparkles, Compass } from 'lucide-react';
+import { ArrowUp, ArrowDown, ArrowLeft, ArrowRight, Compass } from 'lucide-react';
 
 export default function App() {
   const initialRoute = parseInitialUrlState(
@@ -71,6 +71,7 @@ export default function App() {
 
   const activeChapterIndex = getChapterIndexFromProgress(scrollProgress, CHAPTERS.length);
   const prevChapterRef = useRef<number>(activeChapterIndex);
+  const touchStartYRef = useRef<number | null>(null);
 
   // Detect prefers-reduced-motion
   useEffect(() => {
@@ -103,14 +104,23 @@ export default function App() {
     soundEngine.playClick();
   }, []);
 
-  // Wheel & Keyboard scroll navigation for Guided Mode
+  const handleSelectChapterById = useCallback(
+    (chapterId: string) => {
+      const idx = CHAPTERS.findIndex((c) => c.id === chapterId);
+      if (idx >= 0) {
+        handleSelectChapter(idx);
+      }
+    },
+    [handleSelectChapter],
+  );
+
+  // Wheel, Touch-Swipe & Keyboard scroll navigation for Guided Mode
   useEffect(() => {
     const isModalActive =
       quickViewOpen || projectGridOpen || aiLabOpen || Boolean(selectedProject);
 
     const handleWheel = (e: WheelEvent) => {
       if (isModalActive || exploreMode) return;
-      // Ignore wheel events inside scrollable inner containers
       const target = e.target as HTMLElement | null;
       if (target && target.closest('.overflow-y-auto')) {
         return;
@@ -118,8 +128,34 @@ export default function App() {
       if (!introDismissed && Math.abs(e.deltaY) > 10) {
         setIntroDismissed(true);
       }
-      const delta = e.deltaY * 0.00045;
+      const delta = e.deltaY * 0.00032;
       setScrollProgress((prev) => clamp01(prev + delta));
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      if (isModalActive || exploreMode) return;
+      const target = e.target as HTMLElement | null;
+      if (target && (target.closest('.overflow-y-auto') || target.closest('button') || target.closest('a') || target.closest('input') || target.closest('textarea'))) {
+        touchStartYRef.current = null;
+        return;
+      }
+      if (e.touches.length === 1) {
+        touchStartYRef.current = e.touches[0].clientY;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isModalActive || exploreMode || touchStartYRef.current === null) return;
+      if (e.touches.length !== 1) return;
+      const currentY = e.touches[0].clientY;
+      const dy = touchStartYRef.current - currentY;
+      touchStartYRef.current = currentY;
+      if (Math.abs(dy) > 2) {
+        if (!introDismissed && Math.abs(dy) > 12) {
+          setIntroDismissed(true);
+        }
+        setScrollProgress((prev) => clamp01(prev + dy * 0.0009));
+      }
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -145,9 +181,13 @@ export default function App() {
     };
 
     window.addEventListener('wheel', handleWheel, { passive: true });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [
@@ -161,7 +201,7 @@ export default function App() {
     handleSelectChapter,
   ]);
 
-  // Handle clicking a 3D landmark in the canvas
+  // Handle clicking/tapping a 3D landmark in the canvas
   const handleSelect3DObject = useCallback(
     (selection: Interactive3DSelection) => {
       soundEngine.playClick();
@@ -169,15 +209,27 @@ export default function App() {
       if (selection.type === 'project') {
         const proj = PROJECTS.find((p) => p.id === selection.id);
         if (proj) setSelectedProject(proj);
-      } else if (selection.type === 'artifact') {
-        setSelectedArtifactId(selection.id);
+      } else if (selection.type === 'persona') {
+        handleSelectChapter(1);
+      } else if (selection.type === 'education') {
         handleSelectChapter(2);
-      } else if (selection.type === 'constellation') {
-        setSelectedConstellationId(selection.id);
-        handleSelectChapter(4);
       } else if (selection.type === 'milestone') {
         setSelectedMilestoneId(selection.id);
-        handleSelectChapter(1);
+        handleSelectChapter(3);
+      } else if (selection.type === 'artifact') {
+        setSelectedArtifactId(selection.id);
+        handleSelectChapter(4);
+      } else if (selection.type === 'pipeline') {
+        handleSelectChapter(5);
+      } else if (selection.type === 'casestudy') {
+        handleSelectChapter(7);
+      } else if (selection.type === 'repo') {
+        handleSelectChapter(8);
+      } else if (selection.type === 'hackathon') {
+        handleSelectChapter(9);
+      } else if (selection.type === 'constellation') {
+        setSelectedConstellationId(selection.id);
+        handleSelectChapter(11);
       }
     },
     [handleSelectChapter],
@@ -239,13 +291,13 @@ export default function App() {
         >
           <div className="max-w-xl w-full bg-[#0B1221] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl text-center space-y-5">
             <div className="text-xs font-mono text-amber-400">
-              Interactive 3D Portfolio · Hyderabad, India
+              My Interactive 3D Engineering World · 14 Chapters · Hyderabad, India
             </div>
             <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-tight font-display">
               {OWNER_PROFILE.fullName.toUpperCase()}
             </h1>
             <p className="text-sm sm:text-base text-sky-300 font-medium">
-              Developer · AI/ML Enthusiast · Creative Technologist
+              AI/ML Engineer · Full-Stack Builder · Creative Technologist
             </p>
             <p className="text-sm text-slate-300 leading-relaxed max-w-md mx-auto">
               &ldquo;{OWNER_PROFILE.introLine}&rdquo;
@@ -264,10 +316,10 @@ export default function App() {
               </button>
               <button
                 type="button"
-                onClick={() => handleSelectChapter(3)}
+                onClick={() => handleSelectChapter(6)}
                 className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-100 font-medium text-xs sm:text-sm transition-colors cursor-pointer"
               >
-                Discover Projects
+                Discover My Projects
               </button>
               <button
                 type="button"
@@ -307,14 +359,14 @@ export default function App() {
 
           {/* Free Exploration Mode Helper & Touch D-Pad */}
           {exploreMode && (
-            <div className="fixed bottom-24 right-6 z-20 flex flex-col items-end gap-3 pointer-events-none">
-              <div className="pointer-events-auto bg-[#0B1221]/95 border border-sky-500/40 rounded-xl px-4 py-2.5 text-xs text-slate-200 shadow-xl max-w-xs">
-                <div className="font-mono text-sky-400 flex items-center gap-1.5 mb-1">
+            <div className="fixed top-16 right-3 sm:top-auto sm:bottom-24 sm:right-6 z-20 flex flex-col items-end gap-2 sm:gap-3 pointer-events-none">
+              <div className="pointer-events-auto bg-[#0B1221]/95 border border-sky-500/40 rounded-xl px-3.5 py-2 text-xs text-slate-200 shadow-xl max-w-xs">
+                <div className="font-mono text-sky-400 flex items-center gap-1.5 mb-0.5">
                   <Compass className="w-3.5 h-3.5" />
-                  <span>Free Exploration Mode Active</span>
+                  <span>Scout Drone Flight Active</span>
                 </div>
-                <p className="text-[11px] text-slate-300 leading-relaxed">
-                  Use <span className="text-white font-mono">WASD / Arrow Keys</span> or the touch pad to fly the Scout Drone, drag to orbit, and click any 3D monument.
+                <p className="text-[11px] text-slate-300 leading-relaxed hidden sm:block">
+                  Use <span className="text-white font-mono">WASD / Arrow Keys</span> or the touch pad to fly my Scout Drone, drag to orbit, and tap any 3D monument.
                 </p>
               </div>
 
@@ -327,7 +379,7 @@ export default function App() {
                   onPointerDown={() => setMobileJoystick({ x: 0, y: 1 })}
                   onPointerUp={() => setMobileJoystick({ x: 0, y: 0 })}
                   onPointerLeave={() => setMobileJoystick({ x: 0, y: 0 })}
-                  className="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-amber-500 active:text-slate-950 text-slate-200 border border-slate-800 cursor-pointer"
+                  className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-amber-500 active:text-slate-950 text-slate-200 border border-slate-800 cursor-pointer"
                 >
                   <ArrowUp className="w-4 h-4" />
                 </button>
@@ -338,7 +390,7 @@ export default function App() {
                   onPointerDown={() => setMobileJoystick({ x: -1, y: 0 })}
                   onPointerUp={() => setMobileJoystick({ x: 0, y: 0 })}
                   onPointerLeave={() => setMobileJoystick({ x: 0, y: 0 })}
-                  className="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-amber-500 active:text-slate-950 text-slate-200 border border-slate-800 cursor-pointer"
+                  className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-amber-500 active:text-slate-950 text-slate-200 border border-slate-800 cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                 </button>
@@ -348,7 +400,7 @@ export default function App() {
                   onPointerDown={() => setMobileJoystick({ x: 0, y: -1 })}
                   onPointerUp={() => setMobileJoystick({ x: 0, y: 0 })}
                   onPointerLeave={() => setMobileJoystick({ x: 0, y: 0 })}
-                  className="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-amber-500 active:text-slate-950 text-slate-200 border border-slate-800 cursor-pointer"
+                  className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-amber-500 active:text-slate-950 text-slate-200 border border-slate-800 cursor-pointer"
                 >
                   <ArrowDown className="w-4 h-4" />
                 </button>
@@ -358,7 +410,7 @@ export default function App() {
                   onPointerDown={() => setMobileJoystick({ x: 1, y: 0 })}
                   onPointerUp={() => setMobileJoystick({ x: 0, y: 0 })}
                   onPointerLeave={() => setMobileJoystick({ x: 0, y: 0 })}
-                  className="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-amber-500 active:text-slate-950 text-slate-200 border border-slate-800 cursor-pointer"
+                  className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 active:bg-amber-500 active:text-slate-950 text-slate-200 border border-slate-800 cursor-pointer"
                 >
                   <ArrowRight className="w-4 h-4" />
                 </button>
@@ -395,7 +447,7 @@ export default function App() {
         onAnalyzeWithAi={(title) => {
           setSelectedProject(null);
           handleOpenAiLab(
-            `Perform a deep architectural analysis of ${title} by Yejju Sathya Sai, covering its problem statement, technical stack, and engineering trade-offs.`,
+            `Perform a deep architectural analysis of ${title}, covering the problem statement, technical stack, and my engineering trade-offs.`,
           );
         }}
       />
@@ -420,7 +472,7 @@ export default function App() {
         onClose={() => setQuickViewOpen(false)}
         onSelectProject={(proj) => setSelectedProject(proj)}
         onOpenAiLab={(promptText) => handleOpenAiLab(promptText)}
-        onJumpToContact={() => handleSelectChapter(5)}
+        onJumpToContact={() => handleSelectChapter(13)}
       />
 
       {/* Gemini High-Thinking Architecture Lab & Workshop CLI Modal */}
@@ -428,6 +480,7 @@ export default function App() {
         isOpen={aiLabOpen}
         initialPrompt={aiLabInitialPrompt}
         onClose={() => setAiLabOpen(false)}
+        onSelectChapterById={handleSelectChapterById}
         onOpenProjectById={(id) => {
           const found = PROJECTS.find((p) => p.id === id);
           if (found) {

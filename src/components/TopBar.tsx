@@ -1,5 +1,4 @@
 import React from 'react';
-import { CHAPTERS } from '../data/portfolio';
 
 interface TopBarProps {
   activeChapterIndex: number;
@@ -19,15 +18,15 @@ export const TopBar: React.FC<TopBarProps> = ({
   // Zone 2: 5 concise single-line text navigation links
   // Zone 3: 1 primary action button
   const navChapters = [
-    { label: 'Origins', index: 1, href: '#origins' },
-    { label: 'Workshop', index: 2, href: '#workshop' },
-    { label: 'Projects', index: 3, href: '#projects' },
-    { label: 'Observatory', index: 4, href: '#beyond' },
-    { label: 'Contact', index: 5, href: '#frontier' },
+    { label: 'Education', index: 2, href: '#education' },
+    { label: 'AI Lab', index: 5, href: '#ai-lab' },
+    { label: 'Projects', index: 6, href: '#projects' },
+    { label: 'Playground', index: 12, href: '#playground' },
+    { label: 'Connect', index: 13, href: '#frontier' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-30 flex items-center justify-between gap-2 sm:gap-8 px-3 sm:px-6 py-3 bg-[#070B14]/90 border-b border-slate-800/80">
+    <header className="fixed top-0 left-0 right-0 z-30 flex items-center justify-between gap-2 sm:gap-8 px-3 sm:px-6 py-2.5 sm:py-3 bg-[#070B14]/90 backdrop-blur-md border-b border-slate-800/80">
       {/* Zone 1: Single text element wordmark */}
       <a
         href="#arrival"

@@ -141,7 +141,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <div className="lg:col-span-2 space-y-6">
             <div>
               <h3 className="text-sm font-semibold text-amber-400 mb-2">
-                01. The Problem Being Solved
+                01. The Problem I Set Out to Solve
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
                 {project.problem}
@@ -150,7 +150,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
             <div>
               <h3 className="text-sm font-semibold text-amber-400 mb-2">
-                02. Solution & System Overview
+                02. My Solution & System Overview
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
                 {project.summary}
@@ -177,7 +177,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
             <div>
               <h3 className="text-sm font-semibold text-emerald-400 mb-2">
-                04. Engineering Challenges & Learning Outcomes
+                04. Engineering Challenges & What I Learned
               </h3>
               <ul className="space-y-2">
                 {project.challengesAndLearnings.map((item, idx) => (
@@ -193,7 +193,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <div className="space-y-6 bg-[#070B14] border border-slate-800/90 rounded-xl p-5">
             <div>
               <h3 className="text-xs font-mono text-amber-400 mb-2">
-                Verified Personal Contribution
+                My Role & Engineering Contribution
               </h3>
               <p className="text-sm text-slate-200 leading-relaxed">
                 {project.personalContribution}
@@ -212,7 +212,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             <div className="pt-4 border-t border-slate-800">
               <h3 className="text-xs font-mono text-slate-400 mb-3 flex items-center gap-1.5">
                 <Users className="w-3.5 h-3.5 text-amber-400" />
-                <span>Project Team & Attribution ({project.collaborators.length})</span>
+                <span>Team & Attribution ({project.collaborators.length})</span>
               </h3>
               <div className="space-y-2.5 max-h-60 overflow-y-auto pr-1">
                 {project.collaborators.map((collab, idx) => (
@@ -232,11 +232,6 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                         </a>
                       ) : (
                         <span>{collab.name}</span>
-                      )}
-                      {collab.rollNumber && (
-                        <span className="font-mono text-[11px] text-slate-400 tabular-nums">
-                          {collab.rollNumber}
-                        </span>
                       )}
                     </div>
                     <p className="text-slate-400 mt-0.5">{collab.role}</p>

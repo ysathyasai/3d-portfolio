@@ -15,6 +15,7 @@ interface AiArchitectureLabModalProps {
   initialPrompt?: string;
   onClose: () => void;
   onOpenProjectById: (projectId: string) => void;
+  onSelectChapterById?: (chapterId: string) => void;
 }
 
 export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
@@ -22,11 +23,12 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
   initialPrompt,
   onClose,
   onOpenProjectById,
+  onSelectChapterById,
 }) => {
   const [activeTab, setActiveTab] = useState<'gemini' | 'terminal'>('gemini');
   const [prompt, setPrompt] = useState(
     initialPrompt ||
-      'Analyze how Khet2Kitchen (SIH 2026) and Kodex (HackwithHyderabad 3.0) demonstrate Sathya Sai’s end-to-end AI & Full-Stack systems engineering.',
+      'Analyze how Khet2Kitchen (SIH 2026), Kodex (HackwithHyderabad 3.0), and YieldGrid (VNR VJIET) demonstrate my end-to-end AI, Java, and Full-Stack systems engineering.',
   );
   const [mode, setMode] = useState<'deep' | 'fast'>('deep');
   const [loading, setLoading] = useState(false);
@@ -44,11 +46,11 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
   >([
     {
       cmd: 'whoami',
-      out: 'Yejju Sathya Sai (ysathyasai) — AI/ML Developer & Full-Stack Architect at Government Institute of Electronics, Secunderabad (Roll: 23054-AI-051).',
+      out: 'I am Yejju Sathya Sai (@ysathyasai) — AI/ML Engineer & Full-Stack Architect pursuing my B.Tech in CSE (AI & ML) at VNR VJIET, Hyderabad after completing my Diploma in AI & ML at GIOE Secunderabad.',
     },
     {
       cmd: 'help',
-      out: 'Available commands: whoami, roll, projects, sih, kodex, kernel, stack, brainteaser, contact, open <project>, clear',
+      out: 'Available commands: whoami, education, projects, sih, kodex, yieldgrid, kernel, stack, brainteaser, contact, open <project>, goto <chapter>, clear',
     },
   ]);
 
@@ -83,7 +85,7 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
         setResult(data);
       }
     } catch {
-      setError('Network error communicating with the server-side reasoning endpoint.');
+      setError('Network error communicating with my server-side reasoning endpoint.');
     } finally {
       setLoading(false);
     }
@@ -99,6 +101,9 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
       setTermHistory((prev) => [...prev, { cmd: out.command, out: out.response }]);
       if (out.action === 'open-project' && out.targetId) {
         onOpenProjectById(out.targetId);
+      } else if (out.action === 'jump-chapter' && out.targetId && onSelectChapterById) {
+        onSelectChapterById(out.targetId);
+        onClose();
       }
     }
     setTermInput('');
@@ -106,9 +111,9 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
 
   const presetPrompts = [
     'How does Kodex prevent AI pull-request bots from repeating rejected suggestions?',
-    'Explain Khet2Kitchen’s SIH 2026 architecture and Sathya’s role as Full-Stack Architect.',
+    'Explain Khet2Kitchen’s SIH 2026 architecture and my role as Full-Stack Architect.',
+    'How does YieldGrid combine Java 17, PBKDF2-HMAC-SHA256, MySQL 8.0, and 8 StarUML diagrams?',
     'Compare the ML fraud ensemble in Composite Behavioral Modeling with StudyHub’s AI stack.',
-    'How do AdaCompute, Cutthroat, and ImpactVault apply Cardano and Monad Web3 concepts?',
   ];
 
   return (
@@ -127,10 +132,10 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
         <div className="flex items-center justify-between gap-4 pb-4 border-b border-slate-800">
           <div>
             <div className="text-xs font-mono text-amber-400">
-              Interactive Engineering Workbench
+              My Interactive Engineering Workbench
             </div>
             <h2 id="ai-lab-title" className="text-xl font-bold text-white font-display">
-              AI Architecture Lab & Workshop Terminal
+              AI Architecture Lab & Workshop CLI
             </h2>
           </div>
 
@@ -158,7 +163,7 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
                 }`}
               >
                 <Terminal className="w-3.5 h-3.5" />
-                <span>CLI & Easter Eggs</span>
+                <span>Workshop CLI</span>
               </button>
             </div>
 
@@ -231,7 +236,7 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
                 htmlFor="ai-lab-prompt-input"
                 className="block text-xs font-mono text-slate-400"
               >
-                Ask about Sathya’s system architectures, codebase choices, or hackathon builds:
+                Ask about my system architectures, codebase choices, or hackathon builds:
               </label>
               <div className="flex gap-2">
                 <input
@@ -243,7 +248,7 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
                     if (e.key === 'Enter') runAnalysis(prompt, mode);
                   }}
                   className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#070B14] border border-slate-800 text-sm text-white focus:outline-none focus:border-amber-500"
-                  placeholder="Ask about Khet2Kitchen, Kodex, StudyHub, CBM, or MicroKernel-OS..."
+                  placeholder="Ask about Khet2Kitchen, Kodex, YieldGrid, StudyHub, CBM, or MicroKernel-OS..."
                 />
                 <button
                   type="button"
@@ -282,7 +287,7 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
               {termHistory.map((item, idx) => (
                 <div key={idx} className="space-y-1">
                   <div className="text-amber-400">
-                    sathya@gioe-workshop:~$ <span className="text-white">{item.cmd}</span>
+                    sathya@vnrvjiet-workshop:~$ <span className="text-white">{item.cmd}</span>
                   </div>
                   <div className="text-slate-300 leading-relaxed pl-3">
                     {item.out}
@@ -297,7 +302,7 @@ export const AiArchitectureLabModal: React.FC<AiArchitectureLabModalProps> = ({
                 value={termInput}
                 onChange={(e) => setTermInput(e.target.value)}
                 aria-label="Workshop Terminal Command Input"
-                placeholder="Type a command (try: roll, sih, kodex, kernel, brainteaser, open khet2kitchen)..."
+                placeholder="Type a command (try: education, sih, kodex, yieldgrid, kernel, open yieldgrid, goto playground)..."
                 className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#070B14] border border-slate-800 font-mono text-xs text-white focus:outline-none focus:border-amber-500"
               />
               <button

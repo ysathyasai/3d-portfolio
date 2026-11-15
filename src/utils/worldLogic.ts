@@ -60,7 +60,10 @@ export interface InterpolatedWorldState {
   accentHex: string;
 }
 
-export function interpolateCameraState(progress: number): InterpolatedWorldState {
+export function interpolateCameraState(
+  progress: number,
+  isMobilePortrait = false,
+): InterpolatedWorldState {
   const p = clamp01(progress);
   const count = CHAPTERS.length;
   const scaled = p * (count - 1);
@@ -71,16 +74,21 @@ export function interpolateCameraState(progress: number): InterpolatedWorldState
   const chA = CHAPTERS[segmentIndex];
   const chB = CHAPTERS[segmentIndex + 1] || chA;
 
+  const posA = isMobilePortrait ? chA.mobileCameraPosition : chA.cameraPosition;
+  const posB = isMobilePortrait ? chB.mobileCameraPosition : chB.cameraPosition;
+  const targetA = isMobilePortrait ? chA.mobileCameraTarget : chA.cameraTarget;
+  const targetB = isMobilePortrait ? chB.mobileCameraTarget : chB.cameraTarget;
+
   // Add a subtle arc on Y during transitions between islands for cinematic sweep
-  const basePos = lerpVec3(chA.cameraPosition, chB.cameraPosition, segmentT);
-  const arcBoost = Math.sin(segmentT * Math.PI) * 1.4;
+  const basePos = lerpVec3(posA, posB, segmentT);
+  const arcBoost = Math.sin(segmentT * Math.PI) * (isMobilePortrait ? 1.0 : 1.4);
   const cameraPosition: [number, number, number] = [
     basePos[0],
     basePos[1] + arcBoost,
     basePos[2],
   ];
 
-  const cameraTarget = lerpVec3(chA.cameraTarget, chB.cameraTarget, segmentT);
+  const cameraTarget = lerpVec3(targetA, targetB, segmentT);
   const activeChapterIndex = getChapterIndexFromProgress(p, count);
 
   return {
@@ -179,6 +187,25 @@ export function executeTerminalCommand(rawInput: string): TerminalCommandOutput 
     };
   }
 
+  if (lower.startsWith('goto ') || lower.startsWith('chapter ')) {
+    const query = lower.replace(/^(goto|chapter)\s+/, '').trim();
+    const matchedCh = CHAPTERS.find(
+      (c) =>
+        c.id.toLowerCase() === query ||
+        c.numberLabel === query.padStart(2, '0') ||
+        String(c.index + 1) === query ||
+        c.shortLabel.toLowerCase() === query,
+    );
+    if (matchedCh) {
+      return {
+        command: trimmed,
+        response: `Warping camera to Chapter ${matchedCh.numberLabel}: ${matchedCh.title}...`,
+        action: 'jump-chapter',
+        targetId: matchedCh.id,
+      };
+    }
+  }
+
   if (lower.startsWith('open ')) {
     const slug = lower.replace('open ', '').trim();
     const matched = PROJECTS.find(
@@ -189,7 +216,7 @@ export function executeTerminalCommand(rawInput: string): TerminalCommandOutput 
     if (matched) {
       return {
         command: trimmed,
-        response: `Opening architectural dossier for ${matched.title}...`,
+        response: `Opening my architectural dossier for ${matched.title}...`,
         action: 'open-project',
         targetId: matched.id,
       };
@@ -198,7 +225,7 @@ export function executeTerminalCommand(rawInput: string): TerminalCommandOutput 
 
   return {
     command: trimmed,
-    response: `Unknown command "${trimmed}". Type "help" for available commands (whoami, roll, projects, sih, kodex, kernel, stack, brainteaser, contact).`,
+    response: `Unknown command "${trimmed}". Type "help" for available commands (whoami, education, projects, sih, kodex, yieldgrid, kernel, stack, brainteaser, contact, open <project>, goto <chapter>).`,
   };
 }
 
@@ -235,7 +262,8 @@ export function parseInitialUrlState(
       (c) =>
         c.id === chapterParam ||
         `chapter-${c.numberLabel}` === chapterParam ||
-        `0${c.index + 1}` === chapterParam,
+        c.numberLabel === chapterParam.padStart(2, '0') ||
+        String(c.index + 1) === chapterParam,
     );
     if (foundIdx >= 0) {
       initialChapterIndex = foundIdx;

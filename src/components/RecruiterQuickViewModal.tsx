@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import {
   OWNER_PROFILE,
+  EDUCATION_CAMPUSES,
   PROJECTS,
   WORKSHOP_ARTIFACTS,
   CONSTELLATION_NODES,
@@ -72,9 +73,9 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-amber-400 mb-1">
-                <span>Recruiter & Engineering Dossier</span>
+                <span>My Engineering & Recruiter Dossier</span>
                 <span aria-hidden="true">·</span>
-                <span>Roll No: {OWNER_PROFILE.rollNumber}</span>
+                <span>{OWNER_PROFILE.specialization}</span>
               </div>
               <h1
                 id="quick-view-title"
@@ -137,7 +138,7 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
               className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer whitespace-nowrap shrink-0"
             >
               <Mail className="w-4 h-4" />
-              <span>Contact Sathya</span>
+              <span>Contact Me</span>
             </button>
             <button
               type="button"
@@ -150,11 +151,11 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
           </div>
         </div>
 
-        {/* Executive Summary & Education Split */}
+        {/* Executive Summary & Dual-Institution Education Split */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 py-8 border-b border-slate-800">
           <div className="lg:col-span-2 space-y-3">
             <h2 className="text-lg font-semibold text-white font-display">
-              01. Executive Engineering Summary
+              01. My Executive Engineering Summary
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
               {OWNER_PROFILE.shortBio}
@@ -164,7 +165,7 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
                 type="button"
                 onClick={() =>
                   onOpenAiLab(
-                    'Summarize why Yejju Sathya Sai is a strong candidate for an AI/ML & Full-Stack Engineering role based on Khet2Kitchen, Kodex, StudyHub, and CBM.',
+                    'Summarize why I (Yejju Sathya Sai) am a strong fit for an AI/ML & Full-Stack Engineering role based on Khet2Kitchen, Kodex, YieldGrid, StudyHub, and CBM.',
                   )
                 }
                 className="px-3.5 py-2 rounded-lg bg-slate-900 text-amber-300 border border-amber-500/40 hover:border-amber-400 text-xs font-medium flex items-center gap-2 transition-colors cursor-pointer"
@@ -175,22 +176,27 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
             </div>
           </div>
 
-          <div className="bg-[#0B1221] border border-slate-800 rounded-xl p-5">
-            <div className="flex items-center gap-2 text-xs font-mono text-sky-400 mb-2">
+          <div className="bg-[#0B1221] border border-slate-800 rounded-xl p-5 space-y-3">
+            <div className="flex items-center gap-2 text-xs font-mono text-sky-400">
               <GraduationCap className="w-4 h-4" />
-              <span>Verified Education</span>
+              <span>Academic Progression</span>
             </div>
-            <h3 className="text-base font-bold text-white">
-              {OWNER_PROFILE.institution}
-            </h3>
-            <p className="text-sm text-slate-300 mt-1">
-              {OWNER_PROFILE.specialization}
-            </p>
-            <div className="mt-3 pt-3 border-t border-slate-800/80 text-xs text-slate-400 font-mono space-y-1 tabular-nums">
-              <div>Roll Number: {OWNER_PROFILE.rollNumber}</div>
-              <div>Cohort: {OWNER_PROFILE.cohort}</div>
-              <div>Location: East Maredpally, Secunderabad</div>
-            </div>
+            {EDUCATION_CAMPUSES.map((edu) => (
+              <div
+                key={edu.id}
+                className="border-b border-slate-800/80 pb-2.5 last:border-none last:pb-0"
+              >
+                <div className="text-[11px] font-mono text-amber-400">
+                  {edu.period}
+                </div>
+                <h3 className="text-sm font-bold text-white">
+                  {edu.degree}
+                </h3>
+                <p className="text-xs text-slate-300 mt-0.5">
+                  {edu.institution}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -200,10 +206,10 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
             <div>
               <h2 className="text-xl font-bold text-white font-display flex items-center gap-2">
                 <Code2 className="w-5 h-5 text-emerald-400" />
-                <span>02. Verified Technical Domains & Repository Evidence</span>
+                <span>02. My Technical Domains & Shipped Repository Evidence</span>
               </h2>
               <p className="text-xs text-slate-400 mt-1">
-                Every technical capability is linked directly to shipped repositories rather than arbitrary percentage bars.
+                Every technical capability is linked directly to my shipped repositories rather than arbitrary percentage bars.
               </p>
             </div>
           </div>
@@ -256,10 +262,10 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
               <h2 className="text-xl font-bold text-white font-display">
-                03. Featured Engineering Projects ({filteredProjects.length})
+                03. My Featured Engineering Projects ({filteredProjects.length})
               </h2>
               <p className="text-xs text-slate-400 mt-1">
-                Click any project to inspect full system architecture, personal role, and team attribution.
+                Click any project to inspect my full system architecture, personal contribution, and team attribution.
               </p>
             </div>
 
@@ -321,7 +327,7 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
                     {proj.summary}
                   </p>
                   <div className="text-xs text-slate-400 mb-4">
-                    <span className="font-semibold text-slate-200">Role: </span>
+                    <span className="font-semibold text-slate-200">My Role: </span>
                     {proj.personalContribution}
                   </div>
                   <p className="text-xs font-mono text-slate-400">
@@ -367,7 +373,7 @@ export const RecruiterQuickViewModal: React.FC<RecruiterQuickViewModalProps> = (
         <div className="py-8">
           <h2 className="text-xl font-bold text-white font-display flex items-center gap-2 mb-6">
             <Award className="w-5 h-5 text-amber-400" />
-            <span>04. Hackathons, Community Builds & Milestones</span>
+            <span>04. My Hackathons, Certifications & Verified Milestones</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {CONSTELLATION_NODES.map((node) => (

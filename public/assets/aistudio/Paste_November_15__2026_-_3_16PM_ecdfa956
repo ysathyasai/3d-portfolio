@@ -1,0 +1,947 @@
+# SATHYA — BEYOND THE SCREEN
+## VERSION 2.0: THE ULTIMATE INTERACTIVE 3D PORTFOLIO
+
+### CRITICAL: THIS IS AN UPGRADE OF AN EXISTING WEBSITE — NOT A NEW PROJECT PROPOSAL
+
+You previously built an interactive developer portfolio titled "SATHYA — BEYOND THE SCREEN" for Yejju Sathya Sai.
+
+The initial implementation is incomplete relative to the intended vision.
+
+Your task is to conduct a complete technical, visual, and experiential audit of the existing implementation, then substantially improve it into an extraordinary, polished, genuinely immersive 3D portfolio.
+
+**Existing repository:** https://github.com/ysathyasai/3d-portfolio
+
+**Existing deployment:** https://ysathyasai.ai.studio
+
+**Original portfolio:** https://ysathyasai.netlify.app
+
+**GitHub profile:** https://github.com/ysathyasai
+
+**LinkedIn:** https://www.linkedin.com/in/ysathyasai
+
+Work directly in the existing project workspace. Preserve functional systems, correct shortcomings, and refactor wherever necessary.
+
+If the repository URL is inaccessible, inspect the existing local workspace and verify the Git remote instead of creating an unrelated replacement.
+
+Do not stop after writing another plan.
+
+You are expected to modify code, execute builds, render the website in a browser, visually inspect it, test interactions, fix defects, and deliver the upgraded application.
+
+---
+
+# 1. THE TWO BIGGEST FAILURES TO CORRECT
+
+## FAILURE A: THE PORTFOLIO HAS ONLY SIX MAIN CHAPTERS
+
+The current implementation revolves around:
+
+1. Arrival
+2. Origins
+3. Workshop
+4. Projects
+5. Beyond the Code
+6. Frontier
+
+This is too limited for the full immersive narrative I originally wanted.
+
+The experience needs much more depth, exploration, storytelling, interaction, and individually designed environments.
+
+**Upgrade the experience to 14 meaningful chapters.**
+
+Do not simply rename the existing six chapters, add filler sections, or duplicate components with different text.
+
+Each new chapter must have:
+
+- A meaningful narrative purpose.
+- A distinctive visual environment or transformation of the world.
+- Verified personal, academic, or technical content.
+- At least one relevant interactive element.
+- A carefully directed camera transition.
+- Responsive desktop and mobile layouts.
+- Clear access from navigation.
+- Polished entrance and exit animations.
+
+The chapters should feel like interconnected places within one evolving digital universe.
+
+The goal is to make the experience substantially richer, not merely longer.
+
+## FAILURE B: THE 3D EXPERIENCE IS MISSING OR DISABLED ON MOBILE
+
+This must be corrected.
+
+**THE MOBILE EXPERIENCE MUST RENDER ACTUAL INTERACTIVE 3D.**
+
+Not merely animated cards, CSS transforms, a prerecorded animation, a static screenshot, or a 2D imitation.
+
+Mobile users should experience the same core Three.js/WebGL universe as desktop users, adapted for their screen dimensions and device capabilities.
+
+Requirements:
+
+- Real Three.js/WebGL rendering on compatible mobile browsers.
+- Visible 3D geometry, lighting, depth, and camera motion.
+- Touch-based object interaction.
+- Scroll-triggered 3D camera choreography.
+- Touch-friendly exploration controls.
+- Mobile-optimized 3D materials and effects.
+- Correct camera framing in portrait and landscape.
+- Stable rendering without excessive battery consumption.
+- Adaptive performance settings.
+- All 14 narrative chapters available on mobile.
+
+Do not disable 3D merely because the screen width is below 768px.
+
+Audit every mobile feature gate, media query, and rendering condition.
+
+Remove incorrect logic that replaces the actual scene with a 2D fallback based solely on viewport width.
+
+Use feature detection and adaptive quality, not device-width exclusion.
+
+On a device without WebGL support, provide a gracefully designed fallback. That exception must not become the default mobile experience.
+
+Reduced-motion preference should reduce animation intensity without unnecessarily removing all 3D content.
+
+**A functional mobile WebGL experience is a release-blocking requirement.**
+
+---
+
+# 2. CREATIVE DIRECTION — BUILD A WORLD PEOPLE WANT TO EXPLORE
+
+The first implementation is a foundation, not the final visual standard.
+
+The new version must feel like a carefully art-directed interactive world.
+
+Study the creative principles behind:
+
+- Bruno Simon's interactive portfolio.
+- Active Theory's immersive digital experiences.
+- Award-winning creative development on Awwwards.
+- Premium interactive WebGL storytelling experiences.
+
+Do not copy their sites.
+
+Create a distinctive identity for Sathya.
+
+## Proposed theme: "The Infinite Inventor's Universe"
+
+Imagine a miniature futuristic world that tells the story of a developer who experiments across software, artificial intelligence, automation, cybersecurity, systems engineering, and emerging technology.
+
+A visitor enters through a small futuristic developer studio.
+
+As they progress, the studio transforms into a much larger interconnected world:
+
+- Miniature cities.
+- Developer laboratories.
+- AI research facilities.
+- Digital universities.
+- Cybersecurity installations.
+- Floating project islands.
+- Mechanical structures.
+- Space observatories.
+- Open-source collaboration hubs.
+- Interactive achievement environments.
+
+The entire world should feel interconnected.
+
+The visitor should be able to recognize different locations, see distant destinations, and feel the scale of the environment.
+
+Use the existing environment where useful, but rebuild weak or visually generic parts.
+
+### Art direction
+
+Aim for:
+
+- High-quality stylized 3D architecture.
+- Beautiful physical lighting.
+- Strong material definition.
+- Detailed miniature environments.
+- Convincing environmental depth.
+- Thoughtful animation.
+- Dynamic but restrained postprocessing.
+- Original memorable objects.
+- Consistent artistic identity.
+
+Avoid relying on glowing pedestals, floating primitives, and particle fields as substitutes for fully designed environments.
+
+A simple shape may be part of the world, but it should not be the entire world.
+
+The portfolio should look beautiful in an ordinary screenshot and feel even better when interacting with it.
+
+---
+
+# 3. REPLACE THE SIX-CHAPTER STRUCTURE WITH FOURTEEN CHAPTERS
+
+Implement these as the main narrative structure.
+
+## 01 — ARRIVAL: THE WORLD AWAKENS
+
+Create an extraordinary cinematic introduction.
+
+The camera approaches a miniature futuristic developer workspace.
+
+Lights illuminate, equipment activates, and the surrounding world begins to reveal itself.
+
+The introductory scene must feature:
+
+- Yejju Sathya Sai.
+- A concise, accurate professional identity.
+- An original animated 3D environment.
+- A smooth camera arrival.
+- "Explore My World" interaction.
+- A skip-intro option.
+- A visible scroll indicator.
+
+The 3D world must immediately respond to scrolling and interaction.
+
+No overly long preloader.
+
+## 02 — THE PERSON BEHIND THE CODE
+
+Create a more personal introduction.
+
+Represent Sathya's curiosity, interests, values, and approach to building technology.
+
+Use an interactive miniature bedroom, studio, workspace, or similar original environment.
+
+Clickable objects should reveal meaningful facts rather than generic motivational text.
+
+Use the genuine profile portrait and verified biographical information.
+
+Create an authentic, approachable identity.
+
+## 03 — ORIGINS & EDUCATION
+
+Build an interactive academic environment.
+
+Verify the educational journey carefully.
+
+The existing portfolio summary references the Government Institute of Electronics, Secunderabad.
+
+The public GitHub profile also identifies VNRVJIET as the current institution.
+
+Research and accurately represent the chronology of both, including any diploma-to-B.Tech transition if verified.
+
+Do not invent dates.
+
+Do not prominently publish student roll numbers or unnecessary personal identifiers.
+
+Use a miniature digital campus with animated paths representing academic progression.
+
+## 04 — THE EVOLUTION TIMELINE
+
+Develop a cinematic timeline showing how Sathya's technical interests and work have evolved.
+
+Include verified milestones in:
+
+- Programming.
+- Artificial intelligence.
+- Machine learning.
+- Full-stack development.
+- Automation.
+- Open source.
+- Hackathons.
+- Systems engineering.
+
+Use meaningful chronological events.
+
+Each milestone should contain supporting details and authentic sources where possible.
+
+## 05 — THE ENGINEER'S WORKSHOP
+
+Rebuild the current six engineering artifacts into a much more polished interactive environment.
+
+Retain useful concepts such as:
+
+- Neural Inference Core.
+- Cognitive Memory Prism.
+- Indic Voice Transducer.
+- Django & Next.js Foundry.
+- Web3 Mesh Ledger.
+- MicroKernel-OS Core.
+
+But improve their actual 3D appearance and interaction.
+
+Each object must reveal what the technology does, how Sathya has explored it, and which real projects use it.
+
+Do not describe unverified expertise as professional mastery.
+
+## 06 — THE AI & MACHINE LEARNING LABORATORY
+
+Create an entirely new interactive AI laboratory.
+
+Use meaningful visualizations such as:
+
+- Neural network structures.
+- Training and inference pipelines.
+- Data processing flows.
+- Model evaluation displays.
+- Retrieval-augmented generation architecture.
+- Machine learning experimentation.
+
+Connect these visualizations to verified projects.
+
+Implement at least one functional educational interaction, such as changing a small inference visualization or inspecting the stages of a real AI pipeline.
+
+Do not claim that a decorative animation is a real ML model.
+
+## 07 — THE PROJECT UNIVERSE
+
+Expand the current project pedestals into a rich set of miniature worlds.
+
+Research and feature suitable projects including:
+
+- Khet2Kitchen.
+- Kodex.
+- StudyHub.
+- Composite Behavioral Modeling.
+- ContribReady.
+- AdaCompute.
+- ImpactVault.
+- Flask Video Downloader.
+- RAG-Bot.
+- MicroKernel-OS.
+
+Verify each project's actual availability, ownership, contribution, and status.
+
+Build distinctive visual representations rather than repeating the same pedestal design.
+
+Examples:
+
+StudyHub becomes a miniature smart campus.
+
+Composite Behavioral Modeling becomes a cybersecurity analytics environment.
+
+Khet2Kitchen becomes a small interactive agricultural supply-chain world.
+
+Kodex becomes a developer or AI productivity facility based on its actual functionality.
+
+MicroKernel-OS becomes an interactive operating-system architecture environment.
+
+Every featured project must provide working source links and meaningful technical descriptions.
+
+## 08 — INSIDE THE BUILDS: ENGINEERING CASE STUDIES
+
+Create a dedicated deep-dive experience for the strongest verified projects.
+
+The visitor should be able to inspect:
+
+- Problem statement.
+- System architecture.
+- Actual technology stack.
+- Key engineering decisions.
+- Challenges.
+- Technical implementation.
+- Individual contribution.
+- Team collaboration.
+- Real screenshots.
+- Available demos.
+- Repository links.
+
+Use an interactive 3D architecture table or inspection console.
+
+The case studies must be genuinely informative to technical recruiters.
+
+Avoid fake performance numbers or fabricated impact metrics.
+
+## 09 — THE OPEN-SOURCE UNIVERSE
+
+Create a new world dedicated to open-source activity.
+
+Include relevant public repositories, tools, contributions, and experimentation.
+
+Possible visual concept:
+
+A connected miniature network of repositories, developers, and code modules.
+
+Allow visitors to inspect repository descriptions and open real GitHub pages.
+
+Do not fabricate contribution statistics.
+
+If live GitHub data is used, cache it appropriately and provide stable fallback content.
+
+## 10 — HACKATHONS & COLLABORATIONS
+
+Build a visually dynamic hackathon environment.
+
+Research and include confirmed participation in:
+
+- Smart India Hackathon 2026.
+- Cardano IndiaCodex.
+- Monad Blitz.
+- HackwithHyderabad.
+- Other verified events.
+
+Verify distinctions such as finalist status before publishing them.
+
+Represent events through interactive venues, workstations, trophies, or miniature competition arenas.
+
+Include authentic project contributions, team credits, outcomes, and learning experiences.
+
+Do not present participation as winning unless supported by evidence.
+
+## 11 — EXPERIENCE & TECHNICAL GROWTH
+
+Create a dedicated professional experience and growth chapter.
+
+Distinguish clearly among:
+
+- Formal employment.
+- Internships.
+- Project experience.
+- Collaborative engineering.
+- Open-source work.
+- Independent learning.
+
+If formal employment cannot be verified, do not manufacture it.
+
+Instead, show genuine practical engineering experience and technical development.
+
+Design a sophisticated spatial experience timeline.
+
+## 12 — ACHIEVEMENTS & CERTIFICATIONS
+
+Build an interactive achievement observatory.
+
+Include real certifications, accomplishments, and milestones.
+
+For each item, provide the issuer, date when verified, and a credential link where available.
+
+Display attractive 3D representations without inventing trophies or honors.
+
+Use a constellation-based presentation only if it remains readable and functional.
+
+## 13 — THE INTERACTIVE PLAYGROUND
+
+Add a genuinely playful, memorable section.
+
+This should not be another collection of information cards.
+
+Build at least three substantial original interactions, for example:
+
+**Mini coding challenge:** A small interactive logic puzzle or debugging challenge.
+
+**Developer terminal:** An improved version of the existing CLI with meaningful commands and project navigation.
+
+**World exploration:** A small drone or rover mission where visitors discover landmarks or unlock technical facts.
+
+You may also retain a verified, secure AI architecture lab if its backend is actually functional.
+
+The playground should demonstrate technical creativity.
+
+Support keyboard, mouse, and touch controls.
+
+Do not leave any interactions as nonfunctional demonstrations.
+
+## 14 — THE NEXT FRONTIER: CONNECT
+
+End with a beautiful cinematic finale.
+
+The visitor should be able to look back across the interconnected world.
+
+Provide:
+
+- GitHub.
+- LinkedIn.
+- Email.
+- Verified additional social links.
+- Resume if available.
+- A functional contact form.
+
+Improve the existing communication portal.
+
+Verify that contact submissions actually reach their destination using the configured backend.
+
+Provide meaningful validation and error states.
+
+Finish with an elegant return-to-world interaction.
+
+---
+
+# 4. MOBILE 3D — COMPLETE IMPLEMENTATION SPECIFICATION
+
+This section is mandatory and must not be deprioritized.
+
+## Rendering
+
+Preserve the genuine 3D scene on supported smartphones.
+
+Use Three.js / React Three Fiber.
+
+Create a mobile rendering profile with:
+
+- Lower device pixel ratio.
+- Smaller shadow maps.
+- Simplified geometry.
+- LOD models.
+- Reduced particle counts.
+- Selective postprocessing.
+- Compressed textures.
+- Reduced draw calls.
+- Optimized lighting.
+
+Maintain the same recognizable world identity.
+
+Do not silently substitute a completely different flat website.
+
+## Mobile camera
+
+A desktop camera path will not automatically produce a good portrait composition.
+
+Develop separate mobile camera framing and animation parameters.
+
+Ensure important objects remain visible on narrow screens.
+
+Support portrait and landscape.
+
+Avoid placing essential labels behind scene geometry or under fixed navigation.
+
+## Mobile navigation
+
+Implement:
+
+- Natural vertical scrolling through all 14 chapters.
+- Touch-friendly chapter navigation.
+- A compact interactive world map.
+- Tap-to-inspect objects.
+- Touch-compatible project overlays.
+- Smooth transitions.
+- Reliable close and back controls.
+
+## Mobile free exploration
+
+Keep the optional exploration mode available on capable mobile devices.
+
+Implement appropriate touch controls for movement and camera rotation.
+
+Provide a clear exit mechanism.
+
+Touch gestures must not accidentally conflict with normal page scrolling.
+
+Use separate interaction modes when necessary.
+
+## Mobile performance
+
+Target smooth performance on realistic mid-range smartphones.
+
+Aim for at least approximately 30 FPS in the interactive experience on representative mid-range devices, with higher frame rates where practical.
+
+Measure actual performance.
+
+Do not claim that mobile is optimized without testing.
+
+## Mobile verification
+
+At minimum, test the live 3D rendering at:
+
+- 360 × 800.
+- 375 × 812.
+- 390 × 844.
+- 430 × 932.
+- 768 × 1024.
+
+Also test a landscape configuration.
+
+Verify that:
+
+1. A WebGL canvas is mounted.
+2. Real 3D geometry is rendered.
+3. Camera movement occurs during scrolling.
+4. Tap interactions work.
+5. The 3D experience is not hidden by responsive CSS.
+6. All 14 chapters are reachable.
+7. Project details can be opened.
+8. Free exploration works on supported mobile devices.
+9. No critical overlap or horizontal overflow exists.
+10. Rendering remains usable after device rotation.
+
+Browser emulation alone does not prove real-device GPU performance.
+
+Test on a physical Android or iOS device if that environment is available; otherwise clearly state the limitation.
+
+**Mobile 3D is mandatory. Disabling it to achieve better Lighthouse scores is not an acceptable solution.**
+
+---
+
+# 5. COMPLETELY UPGRADE THE SCROLL EXPERIENCE
+
+The 14 chapters must form one continuous interactive narrative.
+
+Implement a coordinated scroll system using GSAP ScrollTrigger, a camera spline, or an equivalent architecture.
+
+Ensure:
+
+- Forward scrolling is smooth.
+- Backward scrolling properly reverses animations.
+- Camera movement matches the narrative.
+- Scene transitions feel cinematic.
+- State never becomes desynchronized.
+- Direct navigation works.
+- Refreshing a chapter deep link restores the correct scene.
+- Browser back navigation works.
+- Modal overlays do not corrupt scroll state.
+- Free exploration can exit into the correct guided chapter.
+
+Create meaningful changes in the environment between chapters.
+
+Avoid simply moving the camera between stationary objects.
+
+Use transformations that reveal a larger world.
+
+Include transitions involving appropriate combinations of geometry, architecture, lighting, movement, and camera composition.
+
+Keep normal scrolling usable; do not create excessively long artificial scroll distances or trap the visitor in animations.
+
+---
+
+# 6. IMPROVE EVERY EXISTING INTERACTION
+
+Audit all implemented features and actually test them.
+
+### Scout Drone
+
+Improve movement, collision behavior, camera control, and responsiveness.
+
+Add meaningful landmarks and proper navigation.
+
+Ensure it works with touch.
+
+### Recruiter Quick View
+
+Preserve the existing quick-view route.
+
+Make it fast, accessible, and genuinely useful.
+
+Include accurate projects, verified experience, education, technology stack, and contact information.
+
+Test printing and PDF export.
+
+### Gemini Architecture Lab
+
+Inspect the existing Gemini endpoints.
+
+Verify whether the configured model names and API calls are actually supported in the available environment.
+
+Do not assume that a named model exists simply because it appears in source code.
+
+Correct unsupported model identifiers and implement supported fallbacks.
+
+Protect API credentials server-side.
+
+Add appropriate request limits and validation to prevent abuse.
+
+If a live AI feature cannot be supported reliably, degrade gracefully rather than pretending it works.
+
+### Workshop CLI
+
+Retain the existing terminal concept.
+
+Improve command discovery, keyboard handling, error messages, mobile usability, and project navigation.
+
+Every advertised command should perform its documented behavior.
+
+### Contact Form
+
+Audit POST /api/contact.
+
+Confirm its request handling and production deployment configuration.
+
+Add validation, anti-spam measures, safe error handling, and server-side protection.
+
+Never expose API keys.
+
+### Project links
+
+Check all GitHub URLs, demos, case studies, documentation links, and social links.
+
+Remove or mark unavailable destinations rather than leaving broken links.
+
+---
+
+# 7. DESIGN AND ANIMATION QUALITY STANDARDS
+
+The existing visual system needs a professional creative-director-level refinement pass.
+
+Examine every chapter from actual screenshots.
+
+Improve:
+
+- Scene composition.
+- Environmental storytelling.
+- Camera angles.
+- Texture detail.
+- Geometry quality.
+- Lighting and shadows.
+- Typography.
+- Material consistency.
+- Color hierarchy.
+- Visual depth.
+- Animation easing.
+- Section pacing.
+- Object interaction feedback.
+- UI alignment.
+- Project preview presentation.
+
+Use an original, cohesive art direction.
+
+Avoid excessive neon glow, unnecessary blur, overused glassmorphism, and random movement.
+
+The design must be memorable without becoming visually exhausting.
+
+Add subtle microinteractions where appropriate.
+
+Every interactive object should clearly communicate its affordance through hover, focus, tap, or selection states.
+
+Provide an optional sound system only if implemented properly, with user-initiated playback and mute controls.
+
+The website should feel premium, playful, and technically sophisticated.
+
+---
+
+# 8. PERFORMANCE AND ARCHITECTURAL REFACTORING
+
+Audit the codebase before adding new features.
+
+Identify:
+
+- Duplicate animation loops.
+- Unnecessary React rerenders.
+- Expensive 3D materials.
+- Excessive draw calls.
+- Memory leaks.
+- Unreleased GPU resources.
+- Incorrect canvas mounting behavior.
+- Broken cleanup routines.
+- Heavy synchronous asset loading.
+- Multiple conflicting camera controllers.
+- ScrollTrigger lifecycle problems.
+- Mobile-specific rendering exclusions.
+
+Refactor the existing architecture as necessary.
+
+Use:
+
+- Reusable scene components.
+- A centralized camera controller.
+- Shared geometry and materials.
+- Instancing where appropriate.
+- Scene lazy loading.
+- Texture compression.
+- Adaptive quality settings.
+- Proper render-loop management.
+- Consistent application state.
+
+Preserve working functionality.
+
+Do not unnecessarily migrate frameworks unless the existing architecture has a demonstrated limitation.
+
+Create clearly separated systems for content, interactions, scene composition, camera choreography, and responsive layouts.
+
+---
+
+# 9. CONTENT ACCURACY IS NON-NEGOTIABLE
+
+Audit all biographical and project content against the owner's actual public sources.
+
+Pay special attention to the education timeline, current academic status, hackathon achievements, project ownership, and individual versus collaborative contributions.
+
+Maintain `CONTENT_SOURCES.md` and update it as necessary.
+
+Remove unverified claims.
+
+Do not publicly expose student identifiers or other unnecessary personal information merely because they were present in prior content.
+
+Do not invent internships, professional titles, awards, certificates, project metrics, or technical accomplishments.
+
+Correct anything outdated.
+
+Use concise, personal, professional writing.
+
+The portfolio should communicate genuine capability, not exaggerated credentials.
+
+---
+
+# 10. PROFESSIONAL WEBSITE REQUIREMENTS
+
+Even though this is a 3D experience, it must still function as a credible professional portfolio.
+
+Preserve or improve:
+
+- Search engine indexing.
+- Semantic HTML.
+- Accessibility.
+- Keyboard navigation.
+- Reduced-motion support.
+- Social sharing metadata.
+- Responsive typography.
+- Project information.
+- Easy recruiter navigation.
+- Contact information.
+- Loading states.
+- Error handling.
+- Secure API usage.
+- Asset attribution.
+- Source documentation.
+
+The visitor must be able to understand the owner's professional background without completing every 3D interaction.
+
+Provide an accessible alternative navigation path, not a replacement for the main 3D experience.
+
+---
+
+# 11. MANDATORY TESTING AND VALIDATION
+
+Do not claim completion without executing meaningful tests.
+
+Use an available browser automation system such as Playwright to inspect actual rendered pages.
+
+Test both desktop and mobile.
+
+### Functional tests
+
+- All 14 chapters render.
+- Navigation works.
+- Camera transitions work.
+- Scroll reversibility works.
+- Objects respond to interaction.
+- Project overlays open and close.
+- Free exploration works.
+- CLI commands work.
+- Quick View works.
+- Forms validate and handle requests.
+- Links point to real destinations.
+- Refresh and deep links work.
+
+### Visual tests
+
+Capture screenshots at desktop, tablet, and mobile sizes.
+
+Review the screenshots for layout problems and visual quality.
+
+Correct clipping, overlap, poor contrast, bad camera framing, and unfinished scenes.
+
+### Technical tests
+
+Run:
+
+- Dependency installation.
+- TypeScript checks.
+- Lint checks.
+- Unit tests where relevant.
+- Production build.
+- Browser interaction tests.
+- Asset-loading checks.
+- Relevant API tests.
+
+### Performance tests
+
+Measure rendering and responsiveness.
+
+Record approximate frame rates and identify bottlenecks when suitable profiling tools are available.
+
+Profile desktop and mobile quality settings independently.
+
+### Acceptance requirements
+
+The website must:
+
+1. Contain 14 distinct, meaningful narrative chapters.
+2. Display real interactive 3D on compatible mobile devices.
+3. Maintain a coherent 3D world across the experience.
+4. Have functioning navigation and camera behavior.
+5. Present accurate personal and technical information.
+6. Contain useful technical project details.
+7. Support touch interaction.
+8. Include working project links and contact actions.
+9. Be visually polished at all target viewport sizes.
+10. Build successfully for production.
+11. Avoid serious console errors.
+12. Include proper deployment documentation.
+
+Failure on requirements 1 or 2 means the requested upgrade is incomplete.
+
+---
+
+# 12. EXECUTION ORDER
+
+Work autonomously through the following sequence:
+
+**Stage 1 — Audit:** Inspect the existing repository and deployment. Locate the six-chapter configuration, mobile rendering conditions, scene controllers, and current interactions.
+
+**Stage 2 — Diagnose:** Identify the technical reasons that 3D is absent or disabled on mobile. Document actual observed behavior and relevant code locations.
+
+**Stage 3 — Repair mobile 3D:** Restore real mobile WebGL rendering and implement adaptive quality and correct touch interaction. Verify that it works before proceeding.
+
+**Stage 4 — Expand the narrative:** Implement the 14-chapter architecture, content model, navigation, camera path, and scene transitions.
+
+**Stage 5 — Upgrade the environments:** Improve visual quality and build distinctive new 3D locations. Replace weak repetitive elements.
+
+**Stage 6 — Improve interactivity:** Refine exploration, project inspection, terminal, AI tools, and other existing systems.
+
+**Stage 7 — Verify the content:** Correct outdated information and maintain attribution.
+
+**Stage 8 — Optimize:** Address runtime bottlenecks, load performance, responsive layouts, and asset efficiency.
+
+**Stage 9 — Test:** Execute desktop and mobile interaction, build, accessibility, and visual tests. Fix defects.
+
+**Stage 10 — Deliver:** Produce a successful production build and updated project documentation. Provide a preview deployment if supported.
+
+Do not stop after a stage summary.
+
+Implement the changes.
+
+---
+
+# 13. WHAT YOU MUST DELIVER
+
+Provide:
+
+- The upgraded working source code.
+- Real, interactive desktop and mobile 3D.
+- Fourteen complete narrative chapters.
+- Upgraded visual environments.
+- Improved camera choreography.
+- Fully operational interactive components.
+- Corrected and verified personal information.
+- Updated project descriptions and links.
+- A functioning production build.
+- Updated README and content-source documentation.
+- A mobile compatibility and performance report.
+- Screenshots of desktop and mobile.
+- A clear summary of all modified components.
+- A list of any features that remain unsupported or unverified.
+- A working preview URL if deployment access is available.
+
+If you have repository write access, work on the existing repository using a dedicated branch or equivalent safe workflow.
+
+Do not overwrite the production deployment without authorization.
+
+Do not claim success unless the implementation and tests support that claim.
+
+---
+
+# FINAL INSTRUCTION
+
+I do not want another basic portfolio.
+
+I do not want the same six chapters with slightly different text.
+
+I do not want a beautiful desktop experience and a stripped-down mobile experience.
+
+I want a deeply immersive, original, technically impressive, interactive 3D world that showcases my real journey and work.
+
+**The experience must have at least fourteen substantial chapters, with REAL THREE-DIMENSIONAL RENDERING ON BOTH DESKTOP AND SUPPORTED MOBILE DEVICES.**
+
+Think like an award-winning creative director.
+
+Build like a senior graphics engineer.
+
+Test like a production QA engineer.
+
+Make the website visually exceptional, technically reliable, accessible, and genuinely enjoyable to explore.
+
+Use the existing implementation as a foundation, but do not hesitate to rebuild parts that fall short of the original vision.
+
+You are authorized to make independent design and engineering decisions within the existing project.
+
+**BEGIN BY INSPECTING THE EXISTING SOURCE CODE, FINDING THE MOBILE 3D DISABLING LOGIC, AND IMPLEMENTING THE REQUIRED FIX. THEN CONTINUE THROUGH THE COMPLETE FOURTEEN-CHAPTER UPGRADE.**
+
+DO THE WORK. DO NOT RETURN ANOTHER IMPLEMENTATION PLAN IN PLACE OF THE WORKING WEBSITE.
