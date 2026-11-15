@@ -1,0 +1,1017 @@
+# PROJECT: SATHYA — BEYOND THE SCREEN
+## Build an Extraordinary, Fully Interactive 3D Portfolio Experience
+
+### YOUR ROLE
+
+You are an autonomous team of elite engineers, 3D artists, creative technologists, interaction designers, technical directors, and digital storytellers.
+
+Operate with the combined expertise of:
+
+- A senior creative developer specializing in Three.js, React Three Fiber, and WebGL.
+- An award-winning interactive experience designer inspired by the creativity of Bruno Simon, Active Theory, and Awwwards-level experiences.
+- A cinematic 3D environment artist.
+- A senior frontend engineer specializing in responsive, accessible, high-performance applications.
+- A motion designer specializing in scroll-based storytelling, camera choreography, physics, and microinteractions.
+- A UX researcher and personal branding strategist.
+- A QA engineer responsible for delivering a genuinely working production-ready website.
+
+**YOUR MISSION IS TO BUILD AND DELIVER THE ACTUAL WEBSITE.**
+
+Do not stop at a concept, proposal, mockup, storyboard, technical plan, or collection of example components.
+
+Create the complete project, write the code, construct the 3D scenes, implement the interactions, run the application, test it, correct its problems, and prepare it for deployment.
+
+You have creative freedom over the art direction, provided every important feature is functional, visually coherent, and technically achievable.
+
+---
+
+# 1. THE PERSON BEHIND THE PORTFOLIO
+
+The website belongs to:
+
+**Name:** Yejju Sathya Sai  
+**Preferred display name:** Sathya Sai  
+**GitHub:** https://github.com/ysathyasai  
+**LinkedIn:** https://www.linkedin.com/in/ysathyasai  
+**Existing website:** https://ysathyasai.netlify.app/  
+**Existing portfolio source:** https://github.com/ysathyasai/My-Portfolio  
+**Public contact email:** ysathyasai.dev@gmail.com  
+**Location:** Hyderabad, Telangana, India
+
+The owner is a developer and AI/ML enthusiast interested in software engineering, artificial intelligence, machine learning, automation, full-stack applications, open source, and emerging technologies.
+
+His work and interests also span Web3 and experimentation with new developer tools.
+
+The portfolio should communicate curiosity, technical ambition, creative thinking, continuous learning, practical engineering, and the ability to turn ideas into working software.
+
+**Do not make the website sound like a generic AI-generated personal biography.**
+
+It must reflect the real person.
+
+## Mandatory research before implementation
+
+Examine all of the following:
+
+1. The entire existing website, including its layout, copy, links, images, assets, and projects.
+2. The existing portfolio GitHub repository and component source.
+3. The owner's GitHub profile README, public repositories, relevant commit history, READMEs, and live project demonstrations.
+4. The publicly accessible LinkedIn profile, experience, education, posts, certifications, and hackathon participation.
+5. Additional verified personal links linked from these sources.
+
+Determine:
+
+- Education and academic progression.
+- Confirmed professional and project experience.
+- Real skills supported by projects.
+- Most technically impressive projects.
+- Collaborative contributions and individual contributions.
+- Hackathons and technical events.
+- Awards, certifications, and achievements.
+- Important career and learning milestones.
+- Contact information and professional links.
+- Existing screenshots, photographs, and useful portfolio assets.
+
+Create a structured content inventory, `src/data/portfolio.ts`, and a `CONTENT_SOURCES.md` file documenting where each meaningful factual claim originated.
+
+Do not fabricate employment, internships, awards, experience duration, job titles, metrics, or achievements.
+
+If LinkedIn limits automated access, use accessible public information and mark remaining information for verification rather than attempting to bypass access controls.
+
+Existing content is a starting point—not a limit. Research the actual work and curate the strongest material.
+
+---
+
+# 2. CREATIVE VISION
+
+## Create a portfolio that feels like entering someone's imagination
+
+The creative working title is:
+
+**SATHYA — BEYOND THE SCREEN**
+
+Proposed introductory line:
+
+"Hey, I'm Sathya Sai. Welcome to the world behind my code."
+
+Proposed tagline:
+
+"Building ideas into reality, one experiment at a time."
+
+These are creative starting points. Refine the copy to produce a memorable identity grounded in the owner's actual interests.
+
+### Primary inspiration
+
+Study the experience design principles of:
+
+- https://bruno-simon.com/
+- https://www.awwwards.com/
+- https://activetheory.com/
+
+Draw inspiration from their inventiveness, sophisticated animation, spatial design, and playful interaction.
+
+Do not copy their exact assets, layouts, mechanics, branding, or intellectual property.
+
+This must be an original experience.
+
+## Visual concept: The Living Developer Universe
+
+Build an interconnected miniature 3D universe representing different aspects of Sathya's technical journey.
+
+Imagine an evolving futuristic workshop floating between beautiful miniature digital worlds.
+
+The environment changes as visitors move through the narrative:
+
+- A welcoming personal world.
+- A creative development workstation.
+- An artificial intelligence research laboratory.
+- A project showcase environment.
+- A hackathon and collaboration hub.
+- A final communication portal.
+
+Instead of isolated sections connected only by scrolling, these environments should feel like different areas of one continuous, believable world.
+
+Use original architecture, procedural geometry, carefully composed scenery, spatial lighting, small interactive objects, and compelling transitions.
+
+A visitor should immediately understand that this is not an ordinary portfolio.
+
+**The central goal: make the visitor feel like they are exploring Sathya's mind, projects, and journey.**
+
+---
+
+# 3. CORE EXPERIENCE: TWO INTERACTION MODES
+
+Design two complementary ways to experience the website.
+
+## Mode A — Guided Cinematic Journey
+
+This must be the default experience.
+
+Scrolling smoothly moves the camera through an interconnected 3D world.
+
+The environment responds through:
+
+- Camera movement.
+- Object transformations.
+- Changes in depth.
+- Carefully timed lighting transitions.
+- Parallax.
+- Environmental motion.
+- Contextual content reveals.
+- Scene-specific interactive events.
+
+The narrative should behave like a meticulously directed cinematic experience.
+
+Scroll progress must control the relevant animations deterministically.
+
+Scrolling backward should reverse the transformations naturally.
+
+Navigation links should take users directly to their chosen chapter without breaking the scene state.
+
+## Mode B — Free Exploration
+
+Provide an optional "Explore World" mode.
+
+Visitors can interact with the miniature world more directly through a controlled camera or a small original interactive vehicle, drone, or exploration character.
+
+Desktop controls may use keyboard and mouse.
+
+Mobile controls must use touch-friendly interaction.
+
+Place interactive landmarks representing major portfolio sections and projects.
+
+Selecting a landmark should reveal meaningful content or transition into the appropriate story chapter.
+
+**Free exploration is a bonus experience. Guided scrolling must remain complete and functional without it.**
+
+If implementing the exploration mechanics threatens the stability of the core experience, prioritize the guided experience first, then implement exploration incrementally.
+
+---
+
+# 4. SCROLL-TRIGGERED CINEMATIC STORY
+
+Build at least six substantial narrative chapters.
+
+Each chapter should contain real content, custom environmental design, meaningful animation, and functional interactions.
+
+## CHAPTER 01 — ARRIVAL: THE WORLD OF SATHYA
+
+The first screen must be extraordinary.
+
+Begin with a cinematic view of an atmospheric floating environment.
+
+The camera travels toward a beautiful miniature futuristic workspace.
+
+A small mechanical world awakens:
+
+- Lights illuminate sequentially.
+- Monitors boot up.
+- Objects move into position.
+- Subtle particles appear.
+- A floating digital identity emerges.
+
+Reveal the name:
+
+**YEJJU SATHYA SAI**
+
+Supporting identity:
+
+**Developer • AI/ML Enthusiast • Creative Technologist**
+
+Create a memorable introductory transition that reveals the world rather than simply fading text onto the screen.
+
+Include:
+
+- Explore My World.
+- Discover Projects.
+- Resume, only if a real resume asset exists.
+- An unmistakable scroll invitation.
+- A tasteful skip-intro option.
+
+The first impression should communicate engineering creativity immediately.
+
+Avoid excessively long loading or introductory sequences.
+
+## CHAPTER 02 — ORIGINS: THE JOURNEY
+
+The camera travels from the opening workspace into an interactive timeline.
+
+Represent verified education and technical milestones through objects, miniature environments, or illuminated pathways.
+
+The owner's public materials mention AI/ML studies at the Government Institute of Electronics, Secunderabad. Confirm the accurate current academic details before publishing.
+
+The scene should reveal:
+
+- How the technical journey began.
+- Education and relevant milestones.
+- Interests in programming and computer science.
+- Progression into AI/ML.
+- Exploration of software development and automation.
+- Meaningful transitions into more advanced projects.
+
+Build a spatial timeline rather than a generic vertical resume list.
+
+Use authentic details and natural, concise writing.
+
+Do not invent a dramatic life story.
+
+## CHAPTER 03 — THE CREATOR'S WORKSHOP
+
+The visitor enters a detailed 3D developer workspace.
+
+Possible environmental elements:
+
+- Animated computers and holographic displays.
+- Coding terminals.
+- Books and electronic components.
+- Mechanical keyboards.
+- A miniature server rack.
+- Floating data structures.
+- Interactive technology artifacts.
+
+Each important object can represent a verified technical domain.
+
+Examples:
+
+- Python and machine learning.
+- JavaScript and TypeScript.
+- React and modern web development.
+- Backend engineering.
+- Databases and cloud services.
+- Developer tooling and automation.
+- AI agents and emerging technologies.
+
+Clicking objects should reveal skills, related projects, or meaningful examples.
+
+Skills must be grouped by genuine expertise and evidence, not displayed as an unfiltered wall of every available technology.
+
+Do not invent skill percentages.
+
+Implement satisfying hover, focus, click, and touch states.
+
+## CHAPTER 04 — PROJECT UNIVERSE
+
+This is the most important chapter after the introduction.
+
+Create an interactive gallery of miniature project worlds.
+
+Every featured project should have a distinctive 3D representation rather than a repeated generic card.
+
+Research and consider the following known projects.
+
+### StudyHub
+
+GitHub:
+https://github.com/ysathyasai/StudyHub
+
+A collaborative student productivity ecosystem covering academic workflows, notes, scheduling, tasks, learning tools, and related features.
+
+Creative representation:
+
+A miniature interactive digital university or smart learning campus.
+
+The visitor can interact with a dashboard, scheduling display, or AI learning terminal.
+
+Clearly identify the owner's actual contribution and give appropriate credit to collaborators.
+
+### Composite Behavioral Modeling
+
+GitHub:
+https://github.com/ysathyasai/Composite_Behavioral_Modeling
+
+A Django and machine-learning-based identity theft or fraud-risk detection project.
+
+Creative representation:
+
+A futuristic cybersecurity and behavioral analytics laboratory with flowing data, pattern detection, classification visuals, and interactive analysis panels.
+
+Explain the real system, its architecture, and its implementation.
+
+Do not exaggerate model accuracy or product maturity.
+
+### AdaCompute
+
+Research the owner's public LinkedIn post about Cardano IndiaCodex'26 and the AdaCompute project.
+
+The project explores decentralized AI service exchange using Cardano-related technologies.
+
+Creative representation:
+
+A network of connected AI service nodes with animated transaction and escrow relationships.
+
+Verify implementation details and team contributions.
+
+### ImpactVault
+
+Research the owner's public post about ImpactVault and Monad Blitz.
+
+ImpactVault explores transparent donations, impact verification, and blockchain-based tracking.
+
+Creative representation:
+
+A futuristic transparency vault where visitors can inspect the donation-to-impact verification flow.
+
+Verify repository ownership, collaborators, implementation status, and any live demo.
+
+### Flask Video Downloader
+
+GitHub:
+https://github.com/ysathyasai/Flask-Video-Downloader
+
+Creative representation:
+
+A miniature media-processing station showing the local-first workflow, output formats, and interface.
+
+### Additional projects
+
+Also evaluate:
+
+- The existing My-Portfolio project.
+- Open-source tools and automation repositories.
+- ContribReady, if the owner's public hackathon post and project sources verify it.
+- Other repositories that are technically stronger or more representative.
+
+Prioritize quality over quantity.
+
+### Every featured project must include
+
+- Accurate title and description.
+- The problem being solved.
+- Relevant technical architecture.
+- Technologies actually used.
+- Personal contribution and collaborators where relevant.
+- Screenshots or meaningful visual demonstrations.
+- Verified GitHub link.
+- Verified live demo, if available.
+- Development status, when relevant.
+- Interesting technical challenges or learning outcomes.
+
+Allow users to open an elegant project detail overlay without losing their scroll position.
+
+Provide an accessible traditional project grid as a secondary navigation method.
+
+Do not require users to operate a 3D world to understand the projects.
+
+## CHAPTER 05 — BEYOND THE CODE
+
+This chapter showcases the human journey behind the projects.
+
+Research:
+
+- Hackathon participation.
+- Technical meetups.
+- Open-source contributions.
+- Certifications.
+- AI learning experiences.
+- Collaborative builds.
+- Verified professional experience.
+- Significant learning milestones.
+
+Public starting points include:
+
+- Cardano IndiaCodex'26 and AdaCompute.
+- Monad Blitz and ImpactVault.
+- Generative AI Mastermind by Outskill.
+- Other verifiable public hackathon or community posts.
+
+Design this chapter as an interactive achievement observatory or evolving constellation.
+
+Important milestones appear as illuminated objects connected by paths.
+
+Selecting an object reveals the associated story, date, image, team, or source.
+
+If confirmed employment or internships exist, include a properly designed professional experience timeline.
+
+If no formal work experience can be verified, showcase genuine engineering, project, and community experience instead.
+
+Never fabricate credentials to make the portfolio appear more impressive.
+
+## CHAPTER 06 — THE NEXT FRONTIER
+
+The visitor approaches a beautiful final environment overlooking the entire miniature universe.
+
+The camera reveals how far the story has traveled.
+
+Display a thoughtful closing message expressing curiosity, collaboration, and continued growth.
+
+Provide:
+
+- GitHub.
+- LinkedIn.
+- Email.
+- Resume, if verified.
+- Other validated professional platforms.
+- A fully functional contact experience.
+
+Design a meaningful 3D contact interaction—perhaps activating a communication terminal or opening a miniature transmission portal.
+
+The contact form must actually work.
+
+Implement a secure, deployable solution using a supported form backend or service, with proper validation, spam protection, meaningful errors, and user feedback.
+
+If only a mailto fallback is available, clearly label it as opening an email application rather than claiming that a message was sent.
+
+End with a satisfying view of the entire world.
+
+---
+
+# 5. VISUAL DESIGN REQUIREMENTS
+
+## Artistic direction
+
+Aim for premium cinematic art direction with playful personality.
+
+Suggested palette:
+
+- Deep midnight blue.
+- Near-black charcoal.
+- Warm amber highlights.
+- Electric cyan accents.
+- Carefully controlled violet lighting.
+- Warm off-white typography.
+
+These are suggested colors, not mandatory constraints.
+
+Use the palette that best supports the final visual concept.
+
+Avoid the generic AI portfolio aesthetic of endless purple gradients, floating glass cards, random glowing spheres, and meaningless particles.
+
+The scene should feel authored and intentional.
+
+## Visual techniques
+
+Where technically appropriate, implement:
+
+- Physically based materials.
+- Carefully calibrated environmental lighting.
+- Soft contact shadows.
+- Baked or optimized lighting.
+- Atmospheric depth.
+- Procedural animations.
+- Selective bloom.
+- Reflective surfaces.
+- Camera depth and parallax.
+- Spatial composition.
+- Smooth object motion.
+- Subtle environmental effects.
+
+Only use effects when they improve the visual result.
+
+Design the environment in Blender, Three.js, or another available suitable tool.
+
+Use optimized models, original generated assets, or properly licensed resources.
+
+Do not depend on inaccessible or unlicensed premium models.
+
+Avoid placeholder cubes, generic primitives, and unfinished scaffolding in the final delivery unless they are intentionally incorporated into a polished design language.
+
+---
+
+# 6. TECHNICAL ARCHITECTURE
+
+Preferred stack:
+
+**Core**
+- React
+- TypeScript
+- Vite
+- Three.js
+- React Three Fiber
+- @react-three/drei
+
+**Motion**
+- GSAP
+- GSAP ScrollTrigger
+- Framer Motion / Motion where appropriate
+
+**Styling**
+- Tailwind CSS
+- Responsive typography
+- CSS custom properties
+
+**State**
+- Zustand or an equivalent lightweight state solution
+
+**Quality**
+- ESLint
+- TypeScript strict mode
+- Vitest for relevant logic
+- Playwright for interaction testing
+
+Choose libraries based on compatibility, maintainability, and genuine need.
+
+Do not install unnecessary dependencies.
+
+## 3D architecture
+
+Build reusable components for:
+
+- Scene management.
+- Camera control.
+- Lighting and environments.
+- Interactive objects.
+- Project landmarks.
+- Scroll-choreographed animation.
+- World transitions.
+- Asset loading.
+- Performance profiling.
+- Input handling.
+
+Organize project content separately from presentation logic.
+
+Use a coherent scene state model to prevent navigation and scroll desynchronization.
+
+Avoid maintaining multiple competing animation loops.
+
+Use a centralized animation orchestration strategy.
+
+## Scroll behavior
+
+The camera's position, orientation, focal target, and chapter transitions should be driven by a carefully designed continuous path or equivalent sequence.
+
+Implement:
+
+- Smooth forward scrolling.
+- Reverse scrolling.
+- Chapter transitions.
+- Deep-link navigation.
+- Browser history compatibility.
+- Correct restoration after refresh.
+- Reliable resize behavior.
+- Proper cleanup of animation listeners and triggers.
+
+Scrolling must not cause sudden jumps, overlapping UI, or lost state.
+
+---
+
+# 7. RESPONSIVENESS AND ACCESSIBILITY
+
+The desktop and mobile experiences must both feel intentionally designed.
+
+Do not simply shrink a desktop 3D scene to fit a phone.
+
+## Desktop
+
+- Rich interactive 3D environment.
+- Mouse-based interaction.
+- Optional exploration controls.
+- Sophisticated camera movement.
+- Appropriate high-quality rendering.
+
+## Tablet
+
+- Touch-friendly controls.
+- Responsive camera framing.
+- Reduced environmental complexity where necessary.
+- No clipped text or overlapping panels.
+
+## Mobile
+
+- Optimized 3D scenes.
+- Simplified meshes and lighting.
+- Accessible touch targets.
+- Natural vertical scrolling.
+- Appropriately shortened camera movements.
+- Correct safe-area handling.
+- No forced horizontal scrolling.
+- No essential functionality hidden behind hover.
+
+Detect performance capability and adjust rendering quality automatically.
+
+Provide settings for visual quality when helpful.
+
+Implement a beautiful lightweight fallback for devices without adequate WebGL support.
+
+Support `prefers-reduced-motion`.
+
+The content must remain accessible through normal DOM elements, keyboard navigation, and screen readers even where the 3D world is decorative or supplementary.
+
+Aim for WCAG 2.2 AA compliance for applicable interface elements.
+
+---
+
+# 8. PERFORMANCE — ABSOLUTELY CRITICAL
+
+A spectacular website that freezes, stutters, or takes forever to load is not acceptable.
+
+Optimize aggressively.
+
+Requirements:
+
+- Lazy-load nonessential scenes.
+- Compress textures.
+- Use appropriate GLB/GLTF optimization.
+- Apply instancing where useful.
+- Reduce draw calls.
+- Optimize shadow maps.
+- Cap device pixel ratio intelligently.
+- Reduce postprocessing on weaker devices.
+- Avoid unnecessary React rerenders.
+- Clean up Three.js resources correctly.
+- Manage GPU memory.
+- Pause or reduce rendering when appropriate.
+- Code-split major features.
+- Provide a lightweight loading experience.
+- Use CDN caching effectively.
+- Avoid unnecessary background network requests.
+
+Target approximately 60 FPS on capable desktop hardware.
+
+On less powerful hardware, prioritize stable interaction and acceptable frame pacing over maximum visual quality.
+
+Measure real performance rather than claiming untested FPS.
+
+Test on integrated graphics as well as stronger desktop hardware when possible.
+
+Provide an explicit performance and quality-mode strategy.
+
+---
+
+# 9. DELIGHTFUL INTERACTION DETAILS
+
+Implement meaningful microinteractions throughout the experience.
+
+Ideas include:
+
+### Interactive workspace
+Click a miniature computer to inspect a project or open a terminal-inspired information interface.
+
+### Project landmarks
+Hovering over a world reveals its identity and an elegant contextual preview.
+
+### Dynamic lighting
+Lighting reacts subtly to chapter progression and selected objects.
+
+### Spatial navigation
+A minimal world map displays the visitor's position in the story.
+
+### Hidden discoveries
+Add a few tasteful, original Easter eggs that reward exploration.
+
+### Sound
+Optional ambient audio and subtle interactions, enabled only following user interaction, with a clear mute control.
+
+### Cursor
+Create a custom desktop interaction cursor only when it genuinely improves usability.
+
+### Camera response
+Use restrained pointer-based parallax, easing, and subtle motion.
+
+### Return journey
+Provide a smooth way to return to the beginning without forcing a complete manual scroll.
+
+### Personal identity
+Include original environmental details that reference real projects and interests.
+
+Every interaction must have a purpose.
+
+Do not implement decorative buttons that do nothing.
+
+---
+
+# 10. CONTENT AND PERSONAL BRANDING
+
+The website must make visitors understand three things within the first few seconds:
+
+1. Who Sathya Sai is.
+2. What he builds.
+3. Why they should explore his work.
+
+Write clear, natural copy.
+
+Avoid clichés such as:
+
+- "Passionate developer with a passion for technology."
+- "Turning coffee into code."
+- "Crafting digital experiences one pixel at a time."
+
+Make the identity specific.
+
+Explain what is unusual or interesting about each verified project.
+
+Show genuine progress and technical ability.
+
+Use concise headline writing in cinematic scenes, with deeper explanations available on demand.
+
+Do not overload the 3D experience with paragraphs that obscure the artwork.
+
+Also include a conventional accessible content path for visitors who want information quickly.
+
+This is a professional portfolio first and an interactive artwork second.
+
+It must succeed at both.
+
+---
+
+# 11. RECRUITER-FRIENDLY EXPERIENCE
+
+Provide a visible "Quick View" or "Professional View" option.
+
+This switches to or opens a straightforward, attractive portfolio view containing:
+
+- Short professional introduction.
+- Verified skills.
+- Education.
+- Professional experience, if verified.
+- Selected projects.
+- Certifications and achievements.
+- Resume.
+- Contact information.
+
+Visitors must be able to discover relevant information without navigating the entire cinematic experience.
+
+The quick view should not be a separate ugly fallback.
+
+Maintain the same premium visual identity.
+
+---
+
+# 12. SEO, SECURITY, AND PRODUCTION READINESS
+
+Implement:
+
+- Semantic HTML.
+- Appropriate headings.
+- Accessible links.
+- Open Graph metadata.
+- Social sharing image.
+- Proper page title and description.
+- Canonical URL.
+- Sitemap.
+- Robots configuration.
+- Valid structured data where appropriate.
+- Accessible page content for search engines.
+- Responsive image handling.
+- Secure external links.
+- Input validation.
+- Contact-form abuse protection.
+- Environment-based configuration.
+- No exposed secret API keys.
+- Custom 404 handling.
+- Deployment-compatible routing.
+
+Use suitable prerendering or static generation for indexable content when necessary.
+
+Build with Netlify deployment compatibility in mind.
+
+Do not overwrite the existing live site without explicit authorization.
+
+Prepare the new site for preview deployment first.
+
+---
+
+# 13. REQUIRED DEVELOPMENT EXECUTION
+
+You must execute the following workflow, not merely describe it.
+
+## Phase 1 — Research and content verification
+
+Inspect the public sources.
+
+Create the verified content inventory.
+
+Identify suitable assets.
+
+Prioritize projects.
+
+Resolve conflicting claims conservatively.
+
+## Phase 2 — Original creative direction
+
+Choose a coherent world design.
+
+Define the scene architecture, chapters, camera movement, and interaction model.
+
+Create a brief design specification only as an internal implementation guide.
+
+Do not stop here.
+
+## Phase 3 — Build the real application
+
+Initialize or update the project.
+
+Install the required dependencies.
+
+Implement the application architecture.
+
+Build the environment, camera controls, lighting, UI, and content components.
+
+Develop the scroll-driven story.
+
+## Phase 4 — Complete all meaningful functionality
+
+Implement project interactions, navigation, overlays, mobile controls, contact functionality, accessibility, and secondary viewing modes.
+
+Wire all buttons and links.
+
+No unfinished placeholders.
+
+## Phase 5 — Visual refinement
+
+Inspect the actual rendered application.
+
+Improve composition, pacing, readability, lighting, materials, responsiveness, and motion.
+
+Replace anything that looks like a generic template.
+
+## Phase 6 — Testing and bug fixing
+
+Run the app and inspect it in a browser.
+
+Test major functionality at:
+
+- 1920 × 1080 desktop.
+- 1440 × 900 laptop.
+- 768 × 1024 tablet.
+- 390 × 844 mobile.
+- 360 × 800 mobile.
+
+Verify:
+
+- Every narrative chapter works.
+- Scrolling forward and backward behaves correctly.
+- Projects open and close correctly.
+- Navigation works.
+- Mobile interaction works.
+- All external links are valid.
+- Contact actions behave correctly.
+- Refresh and deep links work.
+- No serious browser-console errors exist.
+- No TypeScript or build errors remain.
+- No missing assets or broken 3D materials remain.
+- Reduced-motion mode functions.
+- Performance fallbacks activate as intended.
+
+Use automated tests where appropriate and manual browser inspection for visual behavior.
+
+Fix issues discovered by the tests.
+
+## Phase 7 — Optimize and deliver
+
+Run a production build.
+
+Test the resulting build.
+
+Create documentation explaining how to:
+
+- Install dependencies.
+- Start development mode.
+- Build for production.
+- Deploy to Netlify.
+- Update portfolio content.
+- Add projects.
+- Change 3D assets.
+- Configure the contact form.
+
+Prepare a preview deployment if the environment supports it.
+
+---
+
+# 14. FINAL DELIVERABLES
+
+I expect:
+
+1. **A complete working website** with the actual source code.
+2. A cohesive and polished interactive 3D environment.
+3. Fully implemented scroll-triggered storytelling.
+4. Genuine personal information researched from public sources.
+5. Featured project experiences connected to real repositories.
+6. Functional navigation, contact, and social links.
+7. Responsive mobile, tablet, and desktop experiences.
+8. Accessibility and reduced-motion support.
+9. Optimized assets and performance fallbacks.
+10. A working production build.
+11. A README with setup and deployment instructions.
+12. Documentation of verified biographical and project sources.
+13. A preview URL if deployment capability is available.
+14. A clear final report describing what was implemented, what was tested, and any remaining limitations.
+
+Provide screenshots or a recorded walkthrough if those tools are available.
+
+Do not present a mockup or static screenshot as evidence of a working interactive application.
+
+Do not claim successful deployment or testing unless those actions actually succeeded.
+
+---
+
+# 15. ACCEPTANCE CRITERIA
+
+The project is complete only when:
+
+- The site starts and builds successfully.
+- The 3D world is actually rendered and interactive.
+- Scrolling produces coherent cinematic transitions across all chapters.
+- Visitors can understand the owner's actual experience and accomplishments.
+- Featured projects contain functioning details and source links.
+- There is a clear, fast way for recruiters to inspect the portfolio.
+- Mobile users can navigate and consume all essential content.
+- Performance is reasonable on a range of hardware.
+- The site has a distinctive, consistent visual identity.
+- The result is deployable, documented, and maintainable.
+
+Do not claim perfection based on appearance alone.
+
+Evaluate the website as a real visitor would.
+
+---
+
+# 16. NON-NEGOTIABLE INSTRUCTIONS
+
+**DO NOT:**
+
+- Give me another production sheet instead of building.
+- Stop after generating a landing page.
+- Deliver only a hero section.
+- Replace the 3D world with animated CSS gradients.
+- Use a static video as a substitute for the required interactive experience.
+- Copy Bruno Simon's website.
+- Generate fake professional experience.
+- Misrepresent collaborative projects as solo achievements.
+- Invent project screenshots or fake metrics.
+- Leave dead buttons or placeholder links.
+- Sacrifice usability entirely for visual effects.
+- Ignore mobile devices.
+- Ignore integrated graphics and lower-performance hardware.
+- Claim that unfinished functionality has been completed.
+- Keep rewriting the plan instead of implementing.
+
+**DO:**
+
+- Make independent, sound technical decisions.
+- Research before writing biographical content.
+- Write real production-quality code.
+- Use original, high-quality visual concepts.
+- Implement meaningful interactions.
+- Keep the entire experience cohesive.
+- Build in testable increments.
+- Verify each significant feature.
+- Diagnose errors and fix them.
+- Prioritize completing the working application.
+- Report limitations transparently.
+
+If a particular rendering or asset-generation tool is unavailable, investigate available alternatives and implement the best achievable solution with the tools you genuinely have.
+
+Do not repeatedly ask for design preferences that can be resolved through professional creative judgment.
+
+Only request user input when an essential private asset, permission, or personal fact cannot otherwise be established.
+
+# FINAL DIRECTIVE
+
+You are not creating another portfolio template.
+
+You are creating **the interactive digital world of Yejju Sathya Sai**.
+
+When someone opens it, they should immediately recognize creativity, engineering ambition, and attention to detail.
+
+When they explore it, they should discover real projects, real accomplishments, and a distinctive personal journey.
+
+When a recruiter visits, they should be able to evaluate the owner's capabilities quickly and accurately.
+
+The result should feel like an original interactive artwork that also happens to be an exceptionally useful professional portfolio.
+
+**START NOW.**
+
+Inspect the available tools and existing source repository, research the owner's verified public information, initialize the project, and begin implementing the real website.
+
+Continue through implementation, testing, optimization, and production build within the available execution environment.
+
+**The deliverable is the working website, not another explanation of how it could be made.**
